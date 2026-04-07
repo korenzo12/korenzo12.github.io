@@ -3,859 +3,574 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>שאלון מיתוג | CK Digital 360</title>
+<title>◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í | CK Digital 360</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--pink:#E7357A;--cyan:#10E2FF;--gold:#FEC15C;--bg:#04040F;--card:#0f0f24;--border:#1e1e3f;--muted:#8888aa;}
+body{background:var(--bg);color:#fff;font-family:'Heebo',sans-serif;min-height:100vh;overflow-x:hidden;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(4,4,15,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:11px 20px;}
+.topbar-inner{max-width:620px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+.logo-mini{font-size:11px;font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,#E7357A,#10E2FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;}
+.prog-bg{flex:1;height:4px;background:var(--border);border-radius:4px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--pink),var(--cyan));border-radius:4px;width:0%;transition:width 0.5s ease;}
+.step-cnt{font-size:12px;color:var(--muted);white-space:nowrap;font-weight:600;}
 
-  :root {
-    --pink: #E7357A;
-    --cyan: #10E2FF;
-    --gold: #FEC15C;
-    --bg: #04040F;
-    --navy: #0d0d2b;
-    --card: #0f0f24;
-    --border: #1e1e3f;
-    --text: #ffffff;
-    --muted: #8888aa;
-  }
+/* SLIDES */
+.slides-wrap{padding-top:58px;position:relative;}
+.slide{display:none;min-height:calc(100vh - 58px);padding:36px 20px 100px;justify-content:flex-start;align-items:center;flex-direction:column;}
+.slide.active{display:flex;}
+.slide-in{width:100%;max-width:620px;}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Heebo', sans-serif;
-    min-height: 100vh;
-    padding-bottom: 80px;
-  }
+/* WELCOME */
+.welcome{text-align:center;padding-top:50px;}
+.brand-logo{font-size:11px;font-weight:700;letter-spacing:3px;background:linear-gradient(90deg,#0084FF,#8F00FF,#00E5FF,#FF00D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;display:block;margin-bottom:28px;}
+.welcome h1{font-size:clamp(34px,8vw,54px);font-weight:800;line-height:1.15;margin-bottom:14px;}
+.welcome h1 .acc{color:var(--pink);}
+.welcome .sub{color:var(--muted);font-size:16px;line-height:1.7;max-width:430px;margin:0 auto 28px;}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;}
+.chip-gold{background:rgba(254,193,92,.1);border:1px solid rgba(254,193,92,.3);color:var(--gold);}
+.chip-pink{background:rgba(231,53,122,.1);border:1px solid rgba(231,53,122,.3);color:var(--pink);}
+.chip-cyan{background:rgba(16,226,255,.1);border:1px solid rgba(16,226,255,.3);color:var(--cyan);}
+.btn-start{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink),#c0245f);border:none;color:#fff;font-family:'Heebo',sans-serif;font-size:18px;font-weight:700;padding:16px 40px;border-radius:14px;cursor:pointer;transition:all .2s;box-shadow:0 4px 24px rgba(231,53,122,.35);}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(231,53,122,.5);}
 
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, #04040F 0%, #0d0d2b 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 32px 20px 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -60px; left: 50%; transform: translateX(-50%);
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(231,53,122,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .header::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; right: -40px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(16,226,255,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .logo-text {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    background: linear-gradient(90deg, #0084FF, #8F00FF, #00E5FF, #FF00D4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .header h1 {
-    font-size: clamp(22px, 5vw, 32px);
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .header h1 span { color: var(--pink); }
-  .header p {
-    color: var(--muted);
-    font-size: 14px;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-  .time-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(254,193,92,0.1);
-    border: 1px solid rgba(254,193,92,0.3);
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-top: 14px;
-  }
+/* SECTION HEAD */
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+.sec-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.ic-pink{background:rgba(231,53,122,.15);}
+.ic-cyan{background:rgba(16,226,255,.15);}
+.ic-gold{background:rgba(254,193,92,.15);}
+.sec-title{font-size:22px;font-weight:800;}
+.sec-sub{font-size:13px;color:var(--muted);margin-top:2px;}
 
-  /* PROGRESS */
-  .progress-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(4,4,15,0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .progress-bar-bg {
-    flex: 1;
-    height: 4px;
-    background: var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--pink), var(--cyan));
-    border-radius: 4px;
-    width: 0%;
-    transition: width 0.4s ease;
-  }
-  .progress-text {
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-    font-weight: 600;
-  }
+/* Q CARD */
+.qc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px;transition:border-color .2s;}
+.qc:focus-within{border-color:rgba(231,53,122,.4);}
+.cc{background:rgba(16,226,255,.04);border:1px solid rgba(16,226,255,.2);border-radius:14px;padding:18px 20px;margin-bottom:12px;transition:border-color .2s;}
+.cc:focus-within{border-color:rgba(16,226,255,.5);}
+.ql{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.5;}
+.qn{font-size:11px;font-weight:700;color:var(--pink);background:rgba(231,53,122,.1);padding:2px 7px;border-radius:6px;margin-left:8px;}
+.qh{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.req{color:var(--pink);}
 
-  /* MAIN */
-  .container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 24px 16px;
-  }
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:#fff;font-family:'Heebo',sans-serif;font-size:15px;padding:11px 14px;outline:none;transition:border-color .2s;resize:vertical;}
+input:focus,textarea:focus{border-color:rgba(231,53,122,.5);}
+input::placeholder,textarea::placeholder{color:var(--muted);}
+textarea{min-height:78px;}
 
-  /* SECTION */
-  .section {
-    margin-bottom: 32px;
-  }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-num {
-    width: 32px; height: 32px;
-    background: linear-gradient(135deg, var(--pink), #a0205a);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 800;
-    color: #fff;
-    flex-shrink: 0;
-  }
-  .section-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: #fff;
-  }
-  .section-subtitle {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 1px;
-  }
+/* OPTIONS */
+.og{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.ol{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:14px;color:#ccc;transition:all .2s;user-select:none;}
+.ol input{display:none;}
+.ol.sel{background:rgba(231,53,122,.12);border-color:rgba(231,53,122,.5);color:#fff;}
+.ol.sel .ck{background:var(--pink);border-color:var(--pink);}
+.ck{width:16px;height:16px;border:2px solid var(--border);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
+.ck::after{content:'';width:8px;height:8px;border-radius:2px;background:#fff;opacity:0;transition:opacity .2s;}
+.ol.sel .ck::after{opacity:1;}
+.ol.radio .ck{border-radius:50%;}
+.ol.radio .ck::after{border-radius:50%;}
 
-  /* QUESTION CARD */
-  .q-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    margin-bottom: 12px;
-    transition: border-color 0.2s;
-  }
-  .q-card:focus-within {
-    border-color: rgba(231,53,122,0.5);
-    box-shadow: 0 0 0 3px rgba(231,53,122,0.07);
-  }
-  .q-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #ddd;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    display: flex;
-    gap: 8px;
-  }
-  .q-num {
-    color: var(--cyan);
-    font-weight: 700;
-    font-size: 13px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .q-hint {
-    font-size: 11px;
-    color: var(--muted);
-    margin-bottom: 8px;
-    margin-top: -6px;
-    margin-right: 22px;
-  }
-  input[type="text"], textarea, select {
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    padding: 10px 12px;
-    color: #fff;
-    font-family: 'Heebo', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-    direction: rtl;
-  }
-  input[type="text"]:focus, textarea:focus, select:focus {
-    border-color: var(--cyan);
-    background: rgba(16,226,255,0.04);
-  }
-  input[type="text"]::placeholder, textarea::placeholder {
-    color: rgba(255,255,255,0.2);
-  }
-  select option { background: #1a1a3a; color: #fff; }
-  textarea { min-height: 80px; }
+/* TERMS */
+.terms-row{display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;background:rgba(254,193,92,.05);border:1px solid rgba(254,193,92,.2);border-radius:12px;margin-top:8px;}
+.terms-box{width:20px;height:20px;border:2px solid var(--border);border-radius:6px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.terms-box.on{background:var(--gold);border-color:var(--gold);}
+.terms-box.on::after{content:'‚úì';color:#000;font-size:12px;font-weight:800;}
+.terms-txt{font-size:13px;color:#aaa;line-height:1.6;}
+.terms-txt a{color:var(--cyan);text-decoration:none;}
 
-  /* RADIO / CHECKBOX */
-  .options-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 8px;
-    margin-top: 4px;
-  }
-  .option-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 13px;
-    color: #ccc;
-    transition: all 0.2s;
-  }
-  .option-label:hover { border-color: var(--pink); color: #fff; }
-  .option-label input { display: none; }
-  .option-label.selected {
-    border-color: var(--pink);
-    background: rgba(231,53,122,0.12);
-    color: #fff;
-  }
-  .checkmark {
-    width: 16px; height: 16px;
-    border: 2px solid var(--border);
-    border-radius: 4px;
-    flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-  }
-  .option-label.selected .checkmark {
-    background: var(--pink);
-    border-color: var(--pink);
-  }
-  .checkmark::after {
-    content: '✓';
-    font-size: 10px;
-    color: #fff;
-    opacity: 0;
-  }
-  .option-label.selected .checkmark::after { opacity: 1; }
+/* NAV BUTTONS */
+.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(4,4,15,.97);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:14px 20px;display:flex;gap:12px;justify-content:center;align-items:center;z-index:100;}
+.btn-back{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'Heebo',sans-serif;font-size:15px;font-weight:600;padding:12px 20px;border-radius:12px;cursor:pointer;transition:all .2s;}
+.btn-back:hover{border-color:var(--pink);color:#fff;}
+.btn-next{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--pink),#c0245f);border:none;color:#fff;font-family:'Heebo',sans-serif;font-size:16px;font-weight:700;padding:13px 28px;border-radius:12px;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(231,53,122,.3);flex:1;max-width:300px;justify-content:center;}
+.btn-next:hover{transform:translateY(-1px);}
+.btn-next:disabled{opacity:.5;cursor:not-allowed;transform:none;}
 
-  /* SUBMIT SECTION */
-  .submit-section {
-    background: linear-gradient(135deg, #0f0f24, #1a0a20);
-    border: 1px solid rgba(231,53,122,0.3);
-    border-radius: 16px;
-    padding: 28px 24px;
-    text-align: center;
-    margin-top: 16px;
-  }
-  .submit-section h3 {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 6px;
-  }
-  .submit-section p {
-    color: var(--muted);
-    font-size: 13px;
-    margin-bottom: 20px;
-  }
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #25D366;
-    color: #fff;
-    font-family: 'Heebo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 14px 32px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
-  }
-  .btn-whatsapp:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(37,211,102,0.45);
-  }
-  .btn-whatsapp svg { width: 22px; height: 22px; fill: #fff; }
-  .or-divider {
-    color: var(--muted);
-    font-size: 12px;
-    margin: 14px 0;
-  }
-  .btn-email {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    border: 1px solid rgba(16,226,255,0.4);
-    color: var(--cyan);
-    font-family: 'Heebo', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-email:hover { background: rgba(16,226,255,0.07); }
+/* SUCCESS */
+.success{text-align:center;padding-top:50px;}
+.succ-icon{width:80px;height:80px;background:rgba(37,211,102,.1);border:2px solid rgba(37,211,102,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 24px;}
+.success h2{font-size:28px;font-weight:800;margin-bottom:12px;}
+.success p{color:var(--muted);font-size:15px;line-height:1.7;max-width:420px;margin:0 auto 28px;}
+.succ-steps{display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto 32px;text-align:right;}
+.ss{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.ss-ico{font-size:20px;flex-shrink:0;}
+.ss-txt{font-size:14px;color:#ddd;}
 
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 24px 16px 8px;
-    color: var(--muted);
-    font-size: 12px;
-  }
-  .footer span { color: var(--pink); }
+/* TOAST */
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a2e;border:1px solid var(--border);color:#fff;padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;z-index:200;opacity:0;transition:all .3s;white-space:nowrap;pointer-events:none;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.err{border-color:var(--pink);}
+.toast.ok{border-color:#25D366;}
 
-  /* REQUIRED STAR */
-  .req { color: var(--pink); margin-right: 2px; }
-
-  /* NOTIFICATION */
-  .notif {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: #1a2a1a;
-    border: 1px solid #25D366;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-    white-space: nowrap;
-  }
-  .notif.show { transform: translateX(-50%) translateY(0); }
+.spin{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite;display:inline-block;}
+@keyframes sp{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="logo-text">CK DIGITAL 360 | BY KOREN BEN EZRA</div>
-  <h1>שאלון <span>מיתוג</span></h1>
-  <p>עוזר לנו להבין אתכם לעומק — כדי שנוכל לבנות מותג שבאמת מייצג אתכם</p>
-  <div class="time-badge">⏱ זמן מילוי: 15–20 דקות</div>
+<div class="topbar" id="topbar" style="display:none;">
+  <div class="topbar-inner">
+    <span class="logo-mini">CK DIGITAL 360</span>
+    <div class="prog-bg"><div class="prog-fill" id="progFill"></div></div>
+    <span class="step-cnt" id="stepCnt"></span>
+  </div>
 </div>
 
-<!-- PROGRESS -->
-<div class="progress-wrap">
-  <div class="progress-bar-bg">
-    <div class="progress-bar-fill" id="progressFill"></div>
+<div class="slides-wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide active" id="s0">
+<div class="slide-in welcome">
+  <span class="brand-logo">CK DIGITAL 360 | BY KOREN BEN EZRA</span>
+  <h1>◊©◊ê◊ú◊ï◊ü <span class="acc">◊û◊ô◊™◊ï◊í</span><br>◊û◊ß◊¶◊ï◊¢◊ô</h1>
+  <p class="sub">◊¢◊ï◊ñ◊® ◊ú◊†◊ï ◊ú◊î◊ë◊ô◊ü ◊ê◊™◊õ◊ù ◊ú◊¢◊ï◊û◊ß ‚Äî ◊õ◊ì◊ô ◊©◊†◊ï◊õ◊ú ◊ú◊ë◊†◊ï◊™ ◊û◊ï◊™◊í ◊©◊ë◊ê◊û◊™ ◊û◊ô◊ô◊¶◊í ◊ê◊™◊õ◊ù</p>
+  <div class="chips">
+    <span class="chip chip-gold">‚è± 15‚Äì20 ◊ì◊ß◊ï◊™</span>
+    <span class="chip chip-pink">‚ú¶ 32 ◊©◊ê◊ú◊ï◊™</span>
+    <span class="chip chip-cyan">üîí ◊§◊®◊ò◊ô◊ù ◊û◊ï◊í◊†◊ô◊ù</span>
   </div>
-  <div class="progress-text" id="progressText">0 / 34</div>
+  <button class="btn-start" onclick="goNext()">
+    ◊ë◊ï◊ê◊ï ◊†◊™◊ó◊ô◊ú
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
 </div>
 
-<div class="container">
-
-  <!-- SECTION 1 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">1</div>
-      <div>
-        <div class="section-title">פרטים בסיסיים</div>
-        <div class="section-subtitle">נתחיל מההתחלה</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">01</span> שם העסק (הרשמי)<span class="req">*</span></div>
-      <input type="text" id="q1" placeholder="לדוגמה: סטודיו אור — צילום מקצועי" oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">02</span> תחום פעילות / ענף<span class="req">*</span></div>
-      <input type="text" id="q2" placeholder="לדוגמה: עיצוב פנים, קייטרינג, קוסמטיקה..." oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">03</span> שנת הקמה</div>
-      <input type="text" id="q3" placeholder="לדוגמה: 2019" oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">04</span> מיקום (עיר / אזור)</div>
-      <input type="text" id="q4" placeholder="לדוגמה: תל אביב והמרכז" oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">05</span> אתר / רשתות חברתיות קיימות (אם יש)</div>
-      <input type="text" id="q5" placeholder="לדוגמה: instagram.com/mybusiness" oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">06</span> מה השירות / המוצר הראשי שלכם?<span class="req">*</span></div>
-      <textarea id="q6" placeholder="תארו בקצרה מה אתם מוכרים / מציעים" oninput="updateProgress()"></textarea>
-    </div>
+<!-- SLIDE 1: CONTACT -->
+<div class="slide" id="s1">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-cyan">üë§</div>
+    <div><div class="sec-title">◊§◊®◊ò◊ô ◊î◊™◊ß◊©◊®◊ï◊™</div><div class="sec-sub">◊õ◊ì◊ô ◊©◊†◊ï◊õ◊ú ◊ú◊ó◊ñ◊ï◊® ◊ê◊ú◊ô◊õ◊ù</div></div>
   </div>
-
-  <!-- SECTION 2 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">2</div>
-      <div>
-        <div class="section-title">מיצוב ואסטרטגיה</div>
-        <div class="section-subtitle">מה הסיפור שלכם</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">07</span> תאר את העסק שלך במשפט אחד (כאילו מסביר לחבר)<span class="req">*</span></div>
-      <textarea id="q7" placeholder="לדוגמה: אנחנו בונים אתרים לעסקים קטנים שרוצים להיראות כמו גדולים" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">08</span> מה הדבר שאתם הכי טובים בו? מה אתם עושים שאחרים לא?<span class="req">*</span></div>
-      <textarea id="q8" placeholder="מה מייחד אותכם בצורה אמיתית?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">09</span> מה הסיבה מספר 1 שלקוחות בוחרים בכם ולא במתחרה?</div>
-      <textarea id="q9" placeholder="מה לקוחות אומרים לכם כשהם שואלים למה בחרו בכם?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">10</span> מה הכאב / הבעיה הגדולה ביותר שאתם פותרים ללקוח?<span class="req">*</span></div>
-      <textarea id="q10" placeholder="לפני שהלקוח מגיע אליכם — מה מציק לו?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">11</span> מה ההישג שתשמחו לראות בעוד שנה?</div>
-      <textarea id="q11" placeholder="בחינת הצלחה — איך תדעו שהצלחתם?" oninput="updateProgress()"></textarea>
-    </div>
-  </div>
-
-  <!-- SECTION 3 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">3</div>
-      <div>
-        <div class="section-title">קהל יעד</div>
-        <div class="section-subtitle">למי אתם מדברים</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">12</span> מי הלקוח האידיאלי שלכם?<span class="req">*</span></div>
-      <div class="q-hint">גיל, מין, מקצוע, רמת הכנסה, מיקום, אורח חיים</div>
-      <textarea id="q12" placeholder="לדוגמה: נשים בגיל 30–50, מנהלות, תל אביב, הכנסה בינונית-גבוהה..." oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">13</span> מה מציק לו / מה הבעיה שלו לפני שהוא מגיע אליכם?</div>
-      <textarea id="q13" placeholder="מה הוא מרגיש לפני שמוצא את הפתרון שלכם?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">14</span> מה הוא מחפש בפתרון? מה חשוב לו?</div>
-      <textarea id="q14" placeholder="מהם הקריטריונים שלו לבחירה?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">15</span> איפה הלקוח שלכם "גר" דיגיטלית?</div>
-      <div class="options-grid" id="q15-options">
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>אינסטגרם</label>
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>פייסבוק</label>
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>גוגל</label>
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>TikTok</label>
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>לינקדאין</label>
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>המלצות</label>
-        <label class="option-label" onclick="toggleOption(this,'q15')"><input type="checkbox"><div class="checkmark"></div>אחר</label>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">16</span> יש לקוח אמיתי שאהבתם לעבוד איתו? תארו אותו (בלי שם)</div>
-      <textarea id="q16" placeholder="לדוגמה: עסק משפחתי, מאוד מסודרים, יודעים מה הם רוצים..." oninput="updateProgress()"></textarea>
-    </div>
-  </div>
-
-  <!-- SECTION 4 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">4</div>
-      <div>
-        <div class="section-title">מיתוג קיים</div>
-        <div class="section-subtitle">מה יש לכם כבר</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">17</span> יש לכם לוגו כרגע?</div>
-      <div class="options-grid">
-        <label class="option-label" onclick="toggleRadio(this,'q17')"><input type="radio" name="q17"><div class="checkmark"></div>כן, מרוצים ממנו</label>
-        <label class="option-label" onclick="toggleRadio(this,'q17')"><input type="radio" name="q17"><div class="checkmark"></div>כן, אבל צריך עדכון</label>
-        <label class="option-label" onclick="toggleRadio(this,'q17')"><input type="radio" name="q17"><div class="checkmark"></div>לא, צריך חדש</label>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">18</span> יש צבעים מוגדרים כרגע? אם כן — אילו?</div>
-      <input type="text" id="q18" placeholder="לדוגמה: כחול נייבי + זהב, או: אין עדיין" oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">19</span> יש מותג שאהבתם את הוויז'ואל שלו? (בכל תחום שהוא)</div>
-      <textarea id="q19" placeholder="לדוגמה: @apple, @zara, @sheinofficial — מה אהבתם שם?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">20</span> יש מותג שאמרתם "לא, לא ככה אנחנו נראים"?</div>
-      <textarea id="q20" placeholder="מה לא מתאים לכם ויזואלית?" oninput="updateProgress()"></textarea>
-    </div>
-  </div>
-
-  <!-- SECTION 5 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">5</div>
-      <div>
-        <div class="section-title">אישיות המותג</div>
-        <div class="section-subtitle">איך המותג מרגיש</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">21</span> בחרו 3 תכונות שמתארות את המותג שלכם<span class="req">*</span></div>
-      <div class="options-grid" id="q21-options">
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>מקצועי</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>חם ואנושי</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>נועז</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>אמין</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>חדשני</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>מהנה / קליל</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>יוקרתי</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>אמפתי</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>ישיר</label>
-        <label class="option-label" onclick="toggleOption(this,'q21')"><input type="checkbox"><div class="checkmark"></div>מעורר השראה</label>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">22</span> אם המותג שלכם היה אדם — איך הייתם מתארים אותו?</div>
-      <div class="q-hint">גיל, סגנון לבוש, איך הוא מדבר, מה הוא אוהב</div>
-      <textarea id="q22" placeholder="לדוגמה: גבר בן 35, חליפה + סניקרס, מדבר ישר, אוהב טכנולוגיה..." oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">23</span> מה הטון שהכי מתאים לכם?</div>
-      <div class="options-grid">
-        <label class="option-label" onclick="toggleRadio(this,'q23')"><input type="radio" name="q23"><div class="checkmark"></div>מקצועי ורשמי</label>
-        <label class="option-label" onclick="toggleRadio(this,'q23')"><input type="radio" name="q23"><div class="checkmark"></div>חם וקליל</label>
-        <label class="option-label" onclick="toggleRadio(this,'q23')"><input type="radio" name="q23"><div class="checkmark"></div>נועז ומאתגר</label>
-        <label class="option-label" onclick="toggleRadio(this,'q23')"><input type="radio" name="q23"><div class="checkmark"></div>הומוריסטי</label>
-        <label class="option-label" onclick="toggleRadio(this,'q23')"><input type="radio" name="q23"><div class="checkmark"></div>מעורר השראה</label>
-        <label class="option-label" onclick="toggleRadio(this,'q23')"><input type="radio" name="q23"><div class="checkmark"></div>שילוב</label>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">24</span> מה בהחלט לא מתאים לכם בשפה / עיצוב?</div>
-      <textarea id="q24" placeholder="מה תראו ותגידו 'לא, זה לא אנחנו'?" oninput="updateProgress()"></textarea>
-    </div>
-  </div>
-
-  <!-- SECTION 6 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">6</div>
-      <div>
-        <div class="section-title">מתחרים</div>
-        <div class="section-subtitle">איפה אתם בשוק</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">25</span> ציינו 2–3 מתחרים עיקריים (שם + קישור אם יש)</div>
-      <textarea id="q25" placeholder="לדוגמה: סטודיו X — instagram.com/studiox" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">26</span> מה המתחרים שלכם עושים טוב?</div>
-      <textarea id="q26" placeholder="מה אתם מעריכים בהם, גם אם לא תודו בזה :)" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">27</span> מה המתחרים לא עושים טוב / מה החולשה שלהם?</div>
-      <textarea id="q27" placeholder="איפה הם נכשלים שאתם לא?" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">28</span> ממי אתם רוצים להיות שונים בצורה הכי ברורה?</div>
-      <textarea id="q28" placeholder="ומה הבידול שמפריד ביניכם?" oninput="updateProgress()"></textarea>
-    </div>
-  </div>
-
-  <!-- SECTION 7 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">7</div>
-      <div>
-        <div class="section-title">יעדים ושאיפות</div>
-        <div class="section-subtitle">לאן אתם הולכים</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">29</span> מה המטרה העיקרית מהתהליך הזה?<span class="req">*</span></div>
-      <div class="options-grid" id="q29-options">
-        <label class="option-label" onclick="toggleOption(this,'q29')"><input type="checkbox"><div class="checkmark"></div>לוגו חדש</label>
-        <label class="option-label" onclick="toggleOption(this,'q29')"><input type="checkbox"><div class="checkmark"></div>נוכחות דיגיטלית</label>
-        <label class="option-label" onclick="toggleOption(this,'q29')"><input type="checkbox"><div class="checkmark"></div>בידול ממתחרים</label>
-        <label class="option-label" onclick="toggleOption(this,'q29')"><input type="checkbox"><div class="checkmark"></div>בניית אמון</label>
-        <label class="option-label" onclick="toggleOption(this,'q29')"><input type="checkbox"><div class="checkmark"></div>הכנה לפרסום</label>
-        <label class="option-label" onclick="toggleOption(this,'q29')"><input type="checkbox"><div class="checkmark"></div>ריענון מותג קיים</label>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">30</span> יש פרויקט / השקה / אירוע קרוב שצריך להיות מוכנים לו?</div>
-      <input type="text" id="q30" placeholder="לדוגמה: השקה בנובמבר, כנס בינואר..." oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">31</span> מהו תקציב השיווק החודשי הנוכחי שלכם? (טווח משוער)</div>
-      <div class="options-grid">
-        <label class="option-label" onclick="toggleRadio(this,'q31')"><input type="radio" name="q31"><div class="checkmark"></div>עד ₪2,000</label>
-        <label class="option-label" onclick="toggleRadio(this,'q31')"><input type="radio" name="q31"><div class="checkmark"></div>₪2,000–₪5,000</label>
-        <label class="option-label" onclick="toggleRadio(this,'q31')"><input type="radio" name="q31"><div class="checkmark"></div>₪5,000–₪10,000</label>
-        <label class="option-label" onclick="toggleRadio(this,'q31')"><input type="radio" name="q31"><div class="checkmark"></div>מעל ₪10,000</label>
-        <label class="option-label" onclick="toggleRadio(this,'q31')"><input type="radio" name="q31"><div class="checkmark"></div>אין עדיין</label>
-      </div>
-    </div>
-  </div>
-
-  <!-- SECTION 8 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-num">8</div>
-      <div>
-        <div class="section-title">שונות</div>
-        <div class="section-subtitle">עוד קצת לפני שסיימנו</div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">32</span> השם שלך (איש הקשר)</div>
-      <input type="text" id="q32" placeholder="שם פרטי ומשפחה" oninput="updateProgress()">
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">33</span> יש משהו חשוב שלא שאלנו ואתם רוצים שנדע?</div>
-      <textarea id="q33" placeholder="כל מה שחשוב לכם — פה המקום" oninput="updateProgress()"></textarea>
-    </div>
-
-    <div class="q-card">
-      <div class="q-label"><span class="q-num">34</span> איך שמעתם על CK Digital 360?</div>
-      <div class="options-grid">
-        <label class="option-label" onclick="toggleRadio(this,'q34')"><input type="radio" name="q34"><div class="checkmark"></div>אינסטגרם</label>
-        <label class="option-label" onclick="toggleRadio(this,'q34')"><input type="radio" name="q34"><div class="checkmark"></div>המלצה</label>
-        <label class="option-label" onclick="toggleRadio(this,'q34')"><input type="radio" name="q34"><div class="checkmark"></div>גוגל</label>
-        <label class="option-label" onclick="toggleRadio(this,'q34')"><input type="radio" name="q34"><div class="checkmark"></div>אחר</label>
-      </div>
-    </div>
-  </div>
-
-  <!-- SUBMIT -->
-  <div class="submit-section">
-    <h3>✅ סיימתם!</h3>
-    <p>לוחצים על הכפתור ונפתח WhatsApp עם כל התשובות — פשוט שולחים</p>
-    <button class="btn-whatsapp" onclick="sendWhatsApp()">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-      </svg>
-      שלח את השאלון בוואטסאפ
-    </button>
-    <div class="or-divider">— או —</div>
-    <button class="btn-email" onclick="sendEmail()">
-      📧 שלח במייל
-    </button>
-  </div>
-
+  <div class="cc"><div class="ql">◊©◊ù ◊û◊ú◊ê<span class="req">*</span></div><input type="text" id="cn" placeholder="◊©◊ù ◊§◊®◊ò◊ô ◊ï◊©◊ù ◊û◊©◊§◊ó◊î"></div>
+  <div class="cc"><div class="ql">◊û◊ô◊ô◊ú<span class="req">*</span></div><input type="email" id="ce" placeholder="your@email.com" dir="ltr"></div>
+  <div class="cc"><div class="ql">◊ò◊ú◊§◊ï◊ü<span class="req">*</span></div><input type="tel" id="cp" placeholder="05X-XXXXXXX" dir="ltr"></div>
+  <div class="cc"><div class="ql">◊©◊ù ◊î◊¢◊°◊ß<span class="req">*</span></div><input type="text" id="cb" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊°◊ò◊ï◊ì◊ô◊ï ◊ê◊ï◊® ‚Äî ◊¶◊ô◊ú◊ï◊ù ◊û◊ß◊¶◊ï◊¢◊ô"></div>
+</div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  הוכן על ידי <span>CK Digital 360</span> | BY KOREN BEN EZRA<br>
-  "דיגיטל ברמה אחרת."
+<!-- SLIDE 2: ◊ë◊°◊ô◊°◊ô -->
+<div class="slide" id="s2">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-pink">üè¢</div>
+    <div><div class="sec-title">◊§◊®◊ò◊ô◊ù ◊ë◊°◊ô◊°◊ô◊ô◊ù</div><div class="sec-sub">◊†◊™◊ó◊ô◊ú ◊û◊î◊î◊™◊ó◊ú◊î</div></div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">01</span>◊™◊ó◊ï◊ù ◊§◊¢◊ô◊ú◊ï◊™ / ◊¢◊†◊£<span class="req">*</span></div><input type="text" id="q1" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊¢◊ô◊¶◊ï◊ë ◊§◊†◊ô◊ù, ◊ß◊ô◊ô◊ò◊®◊ô◊†◊í, ◊ß◊ï◊°◊û◊ò◊ô◊ß◊î..."></div>
+  <div class="qc"><div class="ql"><span class="qn">02</span>◊©◊†◊™ ◊î◊ß◊û◊î</div><input type="text" id="q2" placeholder="◊ú◊ì◊ï◊í◊û◊î: 2019"></div>
+  <div class="qc"><div class="ql"><span class="qn">03</span>◊û◊ô◊ß◊ï◊ù (◊¢◊ô◊® / ◊ê◊ñ◊ï◊®)</div><input type="text" id="q3" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊™◊ú ◊ê◊ë◊ô◊ë ◊ï◊î◊û◊®◊õ◊ñ"></div>
+  <div class="qc"><div class="ql"><span class="qn">04</span>◊ê◊™◊® / ◊®◊©◊™◊ï◊™ ◊ó◊ë◊®◊™◊ô◊ï◊™ ◊ß◊ô◊ô◊û◊ï◊™</div><input type="text" id="q4" placeholder="◊ú◊ì◊ï◊í◊û◊î: instagram.com/mybusiness"></div>
+  <div class="qc"><div class="ql"><span class="qn">05</span>◊û◊î ◊î◊©◊ô◊®◊ï◊™ / ◊î◊û◊ï◊¶◊® ◊î◊®◊ê◊©◊ô ◊©◊ú◊õ◊ù?<span class="req">*</span></div><textarea id="q5" placeholder="◊™◊ê◊®◊ï ◊ë◊ß◊¶◊®◊î ◊û◊î ◊ê◊™◊ù ◊û◊ï◊õ◊®◊ô◊ù / ◊û◊¶◊ô◊¢◊ô◊ù"></textarea></div>
+</div>
 </div>
 
-<div class="notif" id="notif">✅ השאלון נשלח בהצלחה!</div>
+<!-- SLIDE 3: ◊û◊ô◊¶◊ï◊ë -->
+<div class="slide" id="s3">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-gold">üéØ</div>
+    <div><div class="sec-title">◊û◊ô◊¶◊ï◊ë ◊ï◊ê◊°◊ò◊®◊ò◊í◊ô◊î</div><div class="sec-sub">◊û◊î ◊î◊°◊ô◊§◊ï◊® ◊©◊ú◊õ◊ù</div></div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">06</span>◊™◊ê◊® ◊ê◊™ ◊î◊¢◊°◊ß ◊©◊ú◊ö ◊ë◊û◊©◊§◊ò ◊ê◊ó◊ì<span class="req">*</span></div><textarea id="q6" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊ê◊†◊ó◊†◊ï ◊ë◊ï◊†◊ô◊ù ◊ê◊™◊®◊ô◊ù ◊ú◊¢◊°◊ß◊ô◊ù ◊ß◊ò◊†◊ô◊ù ◊©◊®◊ï◊¶◊ô◊ù ◊ú◊î◊ô◊®◊ê◊ï◊™ ◊õ◊û◊ï ◊í◊ì◊ï◊ú◊ô◊ù"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">07</span>◊û◊î ◊î◊ì◊ë◊® ◊©◊ê◊™◊ù ◊î◊õ◊ô ◊ò◊ï◊ë◊ô◊ù ◊ë◊ï?<span class="req">*</span></div><textarea id="q7" placeholder="◊û◊î ◊û◊ô◊ô◊ó◊ì ◊ê◊ï◊™◊õ◊ù ◊ë◊¶◊ï◊®◊î ◊ê◊û◊ô◊™◊ô◊™?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">08</span>◊û◊î ◊î◊°◊ô◊ë◊î ◊©◊ú◊ß◊ï◊ó◊ï◊™ ◊ë◊ï◊ó◊®◊ô◊ù ◊ë◊õ◊ù ◊ï◊ú◊ê ◊ë◊û◊™◊ó◊®◊î?</div><textarea id="q8" placeholder="◊û◊î ◊ú◊ß◊ï◊ó◊ï◊™ ◊ê◊ï◊û◊®◊ô◊ù ◊ú◊õ◊ù?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">09</span>◊û◊î ◊î◊õ◊ê◊ë ◊î◊í◊ì◊ï◊ú ◊ë◊ô◊ï◊™◊® ◊©◊ê◊™◊ù ◊§◊ï◊™◊®◊ô◊ù?<span class="req">*</span></div><textarea id="q9" placeholder="◊ú◊§◊†◊ô ◊©◊î◊ú◊ß◊ï◊ó ◊û◊í◊ô◊¢ ◊ê◊ú◊ô◊õ◊ù ‚Äî ◊û◊î ◊û◊¶◊ô◊ß ◊ú◊ï?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">10</span>◊û◊î ◊î◊î◊ô◊©◊í ◊©◊™◊©◊û◊ó◊ï ◊ú◊®◊ê◊ï◊™ ◊ë◊¢◊ï◊ì ◊©◊†◊î?</div><textarea id="q10" placeholder="◊ê◊ô◊ö ◊™◊ì◊¢◊ï ◊©◊î◊¶◊ú◊ó◊™◊ù?"></textarea></div>
+</div>
+</div>
+
+<!-- SLIDE 4: ◊ß◊î◊ú ◊ô◊¢◊ì -->
+<div class="slide" id="s4">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-cyan">üë•</div>
+    <div><div class="sec-title">◊ß◊î◊ú ◊ô◊¢◊ì</div><div class="sec-sub">◊ú◊û◊ô ◊ê◊™◊ù ◊û◊ì◊ë◊®◊ô◊ù</div></div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">11</span>◊û◊ô ◊î◊ú◊ß◊ï◊ó ◊î◊ê◊ô◊ì◊ô◊ê◊ú◊ô ◊©◊ú◊õ◊ù?<span class="req">*</span></div><div class="qh">◊í◊ô◊ú, ◊û◊ô◊ü, ◊û◊ß◊¶◊ï◊¢, ◊®◊û◊™ ◊î◊õ◊†◊°◊î, ◊û◊ô◊ß◊ï◊ù</div><textarea id="q11" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊†◊©◊ô◊ù ◊ë◊í◊ô◊ú 30‚Äì50, ◊û◊†◊î◊ú◊ï◊™, ◊™◊ú ◊ê◊ë◊ô◊ë..."></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">12</span>◊û◊î ◊û◊¶◊ô◊ß ◊ú◊ï ◊ú◊§◊†◊ô ◊©◊î◊ï◊ê ◊û◊í◊ô◊¢ ◊ê◊ú◊ô◊õ◊ù?</div><textarea id="q12" placeholder="◊û◊î ◊î◊ï◊ê ◊û◊®◊í◊ô◊© ◊ú◊§◊†◊ô ◊©◊û◊ï◊¶◊ê ◊ê◊™ ◊î◊§◊™◊®◊ï◊ü ◊©◊ú◊õ◊ù?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">13</span>◊û◊î ◊î◊ï◊ê ◊û◊ó◊§◊© ◊ë◊§◊™◊®◊ï◊ü? ◊û◊î ◊ó◊©◊ï◊ë ◊ú◊ï?</div><textarea id="q13" placeholder="◊û◊î◊ù ◊î◊ß◊®◊ô◊ò◊®◊ô◊ï◊†◊ô◊ù ◊©◊ú◊ï ◊ú◊ë◊ó◊ô◊®◊î?"></textarea></div>
+  <div class="qc">
+    <div class="ql"><span class="qn">14</span>◊ê◊ô◊§◊î ◊î◊ú◊ß◊ï◊ó ◊©◊ú◊õ◊ù "◊í◊®" ◊ì◊ô◊í◊ô◊ò◊ú◊ô◊™?</div>
+    <div class="og" id="q14g">
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊ô◊†◊°◊ò◊í◊®◊ù</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊§◊ô◊ô◊°◊ë◊ï◊ß</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊í◊ï◊í◊ú</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>TikTok</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ú◊ô◊†◊ß◊ì◊ê◊ô◊ü</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊î◊û◊ú◊¶◊ï◊™</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊ó◊®</label>
+    </div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">15</span>◊ô◊© ◊ú◊ß◊ï◊ó ◊©◊ê◊î◊ë◊™◊ù ◊ú◊¢◊ë◊ï◊ì ◊ê◊ô◊™◊ï? ◊™◊ê◊®◊ï ◊ê◊ï◊™◊ï</div><textarea id="q15" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊¢◊°◊ß ◊û◊©◊§◊ó◊™◊ô, ◊û◊°◊ï◊ì◊®◊ô◊ù, ◊ô◊ï◊ì◊¢◊ô◊ù ◊û◊î ◊î◊ù ◊®◊ï◊¶◊ô◊ù..."></textarea></div>
+</div>
+</div>
+
+<!-- SLIDE 5: ◊û◊ô◊™◊ï◊í ◊ß◊ô◊ô◊ù -->
+<div class="slide" id="s5">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-pink">üé®</div>
+    <div><div class="sec-title">◊û◊ô◊™◊ï◊í ◊ß◊ô◊ô◊ù</div><div class="sec-sub">◊û◊î ◊ô◊© ◊ú◊õ◊ù ◊õ◊ë◊®</div></div>
+  </div>
+  <div class="qc">
+    <div class="ql"><span class="qn">16</span>◊ô◊© ◊ú◊õ◊ù ◊ú◊ï◊í◊ï ◊õ◊®◊í◊¢?</div>
+    <div class="og" id="q16g">
+      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>◊õ◊ü, ◊û◊®◊ï◊¶◊ô◊ù ◊û◊û◊†◊ï</label>
+      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>◊õ◊ü, ◊ê◊ë◊ú ◊¶◊®◊ô◊ö ◊¢◊ì◊õ◊ï◊ü</label>
+      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>◊ú◊ê, ◊¶◊®◊ô◊ö ◊ó◊ì◊©</label>
+    </div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">17</span>◊ô◊© ◊¶◊ë◊¢◊ô◊ù ◊û◊ï◊í◊ì◊®◊ô◊ù? ◊ê◊ù ◊õ◊ü ‚Äî ◊ê◊ô◊ú◊ï?</div><input type="text" id="q17" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊õ◊ó◊ï◊ú ◊†◊ô◊ô◊ë◊ô + ◊ñ◊î◊ë, ◊ê◊ï: ◊ê◊ô◊ü ◊¢◊ì◊ô◊ô◊ü"></div>
+  <div class="qc"><div class="ql"><span class="qn">18</span>◊ô◊© ◊û◊ï◊™◊í ◊©◊ê◊î◊ë◊™◊ù ◊ê◊™ ◊î◊ï◊ï◊ô◊ñ'◊ï◊ê◊ú ◊©◊ú◊ï?</div><textarea id="q18" placeholder="◊ú◊ì◊ï◊í◊û◊î: @apple, @zara ‚Äî ◊û◊î ◊ê◊î◊ë◊™◊ù ◊©◊ù?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">19</span>◊ô◊© ◊û◊ï◊™◊í ◊©◊ê◊û◊®◊™◊ù "◊ú◊ê, ◊ú◊ê ◊õ◊õ◊î ◊ê◊†◊ó◊†◊ï ◊†◊®◊ê◊ô◊ù"?</div><textarea id="q19" placeholder="◊û◊î ◊ú◊ê ◊û◊™◊ê◊ô◊ù ◊ú◊õ◊ù ◊ï◊ô◊ñ◊ï◊ê◊ú◊ô◊™?"></textarea></div>
+</div>
+</div>
+
+<!-- SLIDE 6: ◊ê◊ô◊©◊ô◊ï◊™ -->
+<div class="slide" id="s6">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-gold">‚ú®</div>
+    <div><div class="sec-title">◊ê◊ô◊©◊ô◊ï◊™ ◊î◊û◊ï◊™◊í</div><div class="sec-sub">◊ê◊ô◊ö ◊î◊û◊ï◊™◊í ◊û◊®◊í◊ô◊©</div></div>
+  </div>
+  <div class="qc">
+    <div class="ql"><span class="qn">20</span>◊ë◊ó◊®◊ï ◊™◊õ◊ï◊†◊ï◊™ ◊©◊û◊™◊ê◊®◊ï◊™ ◊ê◊™ ◊î◊û◊ï◊™◊í<span class="req">*</span></div>
+    <div class="og" id="q20g">
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊û◊ß◊¶◊ï◊¢◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ó◊ù ◊ï◊ê◊†◊ï◊©◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊†◊ï◊¢◊ñ</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊û◊ô◊ü</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ó◊ì◊©◊†◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊û◊î◊†◊î / ◊ß◊ú◊ô◊ú</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ô◊ï◊ß◊®◊™◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊û◊§◊™◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ô◊©◊ô◊®</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊û◊¢◊ï◊®◊® ◊î◊©◊®◊ê◊î</label>
+    </div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">21</span>◊ê◊ù ◊î◊û◊ï◊™◊í ◊î◊ô◊î ◊ê◊ì◊ù ‚Äî ◊™◊ê◊®◊ï ◊ê◊ï◊™◊ï</div><div class="qh">◊í◊ô◊ú, ◊°◊í◊†◊ï◊ü ◊ú◊ë◊ï◊©, ◊ê◊ô◊ö ◊î◊ï◊ê ◊û◊ì◊ë◊®</div><textarea id="q21" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊í◊ë◊® ◊ë◊ü 35, ◊ó◊ú◊ô◊§◊î + ◊°◊†◊ô◊ß◊®◊°, ◊û◊ì◊ë◊® ◊ô◊©◊®..."></textarea></div>
+  <div class="qc">
+    <div class="ql"><span class="qn">22</span>◊û◊î ◊î◊ò◊ï◊ü ◊©◊î◊õ◊ô ◊û◊™◊ê◊ô◊ù ◊ú◊õ◊ù?</div>
+    <div class="og" id="q22g">
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊û◊ß◊¶◊ï◊¢◊ô ◊ï◊®◊©◊û◊ô</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊ó◊ù ◊ï◊ß◊ú◊ô◊ú</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊†◊ï◊¢◊ñ ◊ï◊û◊ê◊™◊í◊®</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊î◊ï◊û◊ï◊®◊ô◊°◊ò◊ô</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊û◊¢◊ï◊®◊® ◊î◊©◊®◊ê◊î</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊©◊ô◊ú◊ï◊ë</label>
+    </div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">23</span>◊û◊î ◊ë◊î◊ó◊ú◊ò ◊ú◊ê ◊û◊™◊ê◊ô◊ù ◊ú◊õ◊ù ◊ë◊©◊§◊î / ◊¢◊ô◊¶◊ï◊ë?</div><textarea id="q23" placeholder="◊û◊î ◊™◊®◊ê◊ï ◊ï◊™◊í◊ô◊ì◊ï '◊ú◊ê, ◊ñ◊î ◊ú◊ê ◊ê◊†◊ó◊†◊ï'?"></textarea></div>
+</div>
+</div>
+
+<!-- SLIDE 7: ◊û◊™◊ó◊®◊ô◊ù -->
+<div class="slide" id="s7">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-pink">‚öîÔ∏è</div>
+    <div><div class="sec-title">◊û◊™◊ó◊®◊ô◊ù</div><div class="sec-sub">◊ê◊ô◊§◊î ◊ê◊™◊ù ◊ë◊©◊ï◊ß</div></div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">24</span>◊¶◊ô◊ô◊†◊ï 2‚Äì3 ◊û◊™◊ó◊®◊ô◊ù ◊¢◊ô◊ß◊®◊ô◊ô◊ù</div><textarea id="q24" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊°◊ò◊ï◊ì◊ô◊ï X ‚Äî instagram.com/studiox"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">25</span>◊û◊î ◊î◊û◊™◊ó◊®◊ô◊ù ◊©◊ú◊õ◊ù ◊¢◊ï◊©◊ô◊ù ◊ò◊ï◊ë?</div><textarea id="q25" placeholder="◊û◊î ◊ê◊™◊ù ◊û◊¢◊®◊ô◊õ◊ô◊ù ◊ë◊î◊ù, ◊í◊ù ◊ê◊ù ◊ú◊ê ◊™◊ï◊ì◊ï ◊ë◊ñ◊î :)"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">26</span>◊û◊î ◊î◊ó◊ï◊ú◊©◊î ◊©◊ú◊î◊ù?</div><textarea id="q26" placeholder="◊ê◊ô◊§◊î ◊î◊ù ◊†◊õ◊©◊ú◊ô◊ù ◊©◊ê◊™◊ù ◊ú◊ê?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">27</span>◊û◊û◊ô ◊ê◊™◊ù ◊®◊ï◊¶◊ô◊ù ◊ú◊î◊ô◊ï◊™ ◊©◊ï◊†◊ô◊ù ◊ë◊¶◊ï◊®◊î ◊î◊õ◊ô ◊ë◊®◊ï◊®◊î?</div><textarea id="q27" placeholder="◊ï◊û◊î ◊î◊ë◊ô◊ì◊ï◊ú ◊©◊û◊§◊®◊ô◊ì ◊ë◊ô◊†◊ô◊õ◊ù?"></textarea></div>
+</div>
+</div>
+
+<!-- SLIDE 8: ◊ô◊¢◊ì◊ô◊ù -->
+<div class="slide" id="s8">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-gold">üöÄ</div>
+    <div><div class="sec-title">◊ô◊¢◊ì◊ô◊ù ◊ï◊©◊ê◊ô◊§◊ï◊™</div><div class="sec-sub">◊ú◊ê◊ü ◊ê◊™◊ù ◊î◊ï◊ú◊õ◊ô◊ù</div></div>
+  </div>
+  <div class="qc">
+    <div class="ql"><span class="qn">28</span>◊û◊î ◊î◊û◊ò◊®◊î ◊î◊¢◊ô◊ß◊®◊ô◊™ ◊û◊î◊™◊î◊ú◊ô◊ö ◊î◊ñ◊î?<span class="req">*</span></div>
+    <div class="og" id="q28g">
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ú◊ï◊í◊ï ◊ó◊ì◊©</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊†◊ï◊õ◊ó◊ï◊™ ◊ì◊ô◊í◊ô◊ò◊ú◊ô◊™</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ë◊ô◊ì◊ï◊ú ◊û◊û◊™◊ó◊®◊ô◊ù</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ë◊†◊ô◊ô◊™ ◊ê◊û◊ï◊ü</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊î◊õ◊†◊î ◊ú◊§◊®◊°◊ï◊ù</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊®◊ô◊¢◊†◊ï◊ü ◊û◊ï◊™◊í ◊ß◊ô◊ô◊ù</label>
+    </div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">29</span>◊ô◊© ◊§◊®◊ï◊ô◊ß◊ò / ◊î◊©◊ß◊î ◊ß◊®◊ï◊ë◊î?</div><input type="text" id="q29" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊î◊©◊ß◊î ◊ë◊†◊ï◊ë◊û◊ë◊®, ◊õ◊†◊° ◊ë◊ô◊†◊ï◊ê◊®..."></div>
+  <div class="qc">
+    <div class="ql"><span class="qn">30</span>◊û◊î◊ï ◊™◊ß◊¶◊ô◊ë ◊î◊©◊ô◊ï◊ï◊ß ◊î◊ó◊ï◊ì◊©◊ô?</div>
+    <div class="og" id="q30g">
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>◊¢◊ì ‚Ç™2,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>‚Ç™2,000‚Äì‚Ç™5,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>‚Ç™5,000‚Äì‚Ç™10,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>◊û◊¢◊ú ‚Ç™10,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>◊ê◊ô◊ü ◊¢◊ì◊ô◊ô◊ü</label>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 9: ◊©◊ï◊†◊ï◊™ + terms -->
+<div class="slide" id="s9">
+<div class="slide-in">
+  <div class="sec-head">
+    <div class="sec-icon ic-cyan">üí¨</div>
+    <div><div class="sec-title">◊õ◊û◊¢◊ò ◊°◊ô◊ô◊û◊†◊ï!</div><div class="sec-sub">◊¢◊ï◊ì ◊©◊™◊ô ◊©◊ê◊ú◊ï◊™</div></div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">31</span>◊ô◊© ◊û◊©◊î◊ï ◊ó◊©◊ï◊ë ◊©◊ú◊ê ◊©◊ê◊ú◊†◊ï?</div><textarea id="q31" placeholder="◊õ◊ú ◊û◊î ◊©◊ó◊©◊ï◊ë ◊ú◊õ◊ù ‚Äî ◊§◊î ◊î◊û◊ß◊ï◊ù"></textarea></div>
+  <div class="qc">
+    <div class="ql"><span class="qn">32</span>◊ê◊ô◊ö ◊©◊û◊¢◊™◊ù ◊¢◊ú CK Digital 360?</div>
+    <div class="og" id="q32g">
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊ê◊ô◊†◊°◊ò◊í◊®◊ù</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊î◊û◊ú◊¶◊î</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊í◊ï◊í◊ú</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊ê◊ó◊®</label>
+    </div>
+  </div>
+  <label class="terms-row" onclick="toggleTerms()">
+    <input type="checkbox" id="termsCb" style="display:none;">
+    <div class="terms-box" id="termsBox"></div>
+    <div class="terms-txt">◊ê◊†◊ô ◊û◊°◊õ◊ô◊ù/◊î ◊ú◊õ◊ö ◊©-CK Digital 360 ◊ô◊©◊û◊ï◊® ◊ê◊™ ◊§◊®◊ò◊ô◊ô ◊ï◊ô◊©◊™◊û◊© ◊ë◊î◊ù ◊ú◊ô◊¶◊ô◊®◊™ ◊ß◊©◊® ◊ë◊†◊ï◊í◊¢ ◊ú◊©◊ô◊®◊ï◊™◊ô ◊î◊û◊ô◊™◊ï◊í, ◊ë◊î◊™◊ê◊ù ◊ú◊û◊ì◊ô◊†◊ô◊ï◊™ ◊î◊§◊®◊ò◊ô◊ï◊™.</div>
+  </label>
+</div>
+</div>
+
+<!-- SLIDE 10: SUCCESS -->
+<div class="slide" id="s10">
+<div class="slide-in success">
+  <div class="succ-icon">‚úÖ</div>
+  <h2>◊î◊©◊ê◊ú◊ï◊ü ◊î◊™◊ß◊ë◊ú!</h2>
+  <p>◊™◊ï◊ì◊î ◊©◊î◊©◊ß◊¢◊™◊ù ◊ê◊™ ◊î◊ñ◊û◊ü. ◊ß◊ï◊®◊ü ◊ô◊ó◊ñ◊ï◊® ◊ê◊ú◊ô◊õ◊ù ◊™◊ï◊ö 24‚Äì48 ◊©◊¢◊ï◊™ ◊¢◊ù ◊™◊ï◊ë◊†◊ï◊™ ◊®◊ê◊©◊ï◊†◊ô◊ï◊™.</p>
+  <div class="succ-steps">
+    <div class="ss"><div class="ss-ico">üìß</div><div class="ss-txt">◊ß◊ï◊®◊ü ◊ß◊ô◊ë◊ú ◊ê◊™ ◊õ◊ú ◊î◊™◊©◊ï◊ë◊ï◊™ ◊©◊ú◊õ◊ù ◊ë◊û◊ô◊ô◊ú</div></div>
+    <div class="ss"><div class="ss-ico">üì±</div><div class="ss-txt">◊ß◊ï◊®◊ü ◊ô◊¶◊ï◊® ◊ê◊ô◊™◊õ◊ù ◊ß◊©◊® ◊™◊ï◊ö 48 ◊©◊¢◊ï◊™</div></div>
+    <div class="ss"><div class="ss-ico">‚ú®</div><div class="ss-txt">◊†◊™◊ó◊ô◊ú ◊ú◊ë◊†◊ï◊™ ◊ê◊™ ◊î◊û◊ï◊™◊í ◊©◊ú◊õ◊ù ◊ô◊ó◊ì</div></div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);">CK DIGITAL 360 | BY KOREN BEN EZRA<br><span style="color:var(--pink);">◊ì◊ô◊í◊ô◊ò◊ú ◊ë◊®◊û◊î ◊ê◊ó◊®◊™.</span></div>
+</div>
+</div>
+
+</div><!-- /slides-wrap -->
+
+<!-- NAV -->
+<div class="nav" id="nav" style="display:none;">
+  <button class="btn-back" id="btnBack" onclick="goBack()" style="display:none;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    ◊ó◊ñ◊ï◊®
+  </button>
+  <button class="btn-next" id="btnNext" onclick="goNext()">
+    ◊î◊ë◊ê
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-  // ===== PHONE NUMBER =====
-  const PHONE = "972559755005";
-  const EMAIL = "ckdigital360@gmail.com";
+// ‚îÄ‚îÄ CONFIG ‚îÄ‚îÄ
+const W3F_KEY   = "42ccd402-0a0d-4322-bd16-ec63fbbbf554";
+const K_PHONE   = "972559755005";
+// CallMeBot: WhatsApp +34 644 59 78 16 ‚Üí "I allow callmebot to send me messages" ‚Üí get apikey
+const CB_APIKEY = "YOUR_CALLMEBOT_APIKEY";
+// Make.com webhook URL for Notion (optional)
+const MAKE_URL  = "";
 
-  // ===== PROGRESS =====
-  function updateProgress() {
-    const fields = document.querySelectorAll('input[type="text"], textarea');
-    let filled = 0;
-    fields.forEach(f => { if (f.value.trim().length > 3) filled++; });
-    const pct = Math.min(100, Math.round((filled / 34) * 100));
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressText').textContent = filled + ' / 34';
-  }
+// ‚îÄ‚îÄ STATE ‚îÄ‚îÄ
+let cur = 0;
+const TOTAL = 9; // content slides 1-9
 
-  // ===== TOGGLE OPTIONS =====
-  function toggleOption(el, name) {
-    el.classList.toggle('selected');
-    updateProgress();
+// ‚îÄ‚îÄ NAVIGATION ‚îÄ‚îÄ
+function goNext() {
+  if (cur === 1 && !validContact()) return;
+  if (cur === 9) { if (!validTerms()) return; submitForm(); return; }
+  if (cur === 1) notionEarlyAdd();
+  showSlide(cur + 1);
+}
+function goBack() { if (cur > 1) showSlide(cur - 1); }
+
+function showSlide(n) {
+  document.getElementById('s'+cur).classList.remove('active');
+  document.getElementById('s'+n).classList.add('active');
+  cur = n;
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateUI();
+}
+
+function updateUI() {
+  const topbar = document.getElementById('topbar');
+  const nav    = document.getElementById('nav');
+  const fill   = document.getElementById('progFill');
+  const cnt    = document.getElementById('stepCnt');
+  const back   = document.getElementById('btnBack');
+  const next   = document.getElementById('btnNext');
+
+  if (cur === 0 || cur === 10) {
+    topbar.style.display = 'none';
+    nav.style.display = 'none';
+    return;
   }
-  function toggleRadio(el, name) {
-    document.querySelectorAll(`[name="${name}"]`).forEach(r => {
-      r.closest('.option-label').classList.remove('selected');
+  topbar.style.display = 'block';
+  nav.style.display = 'flex';
+  fill.style.width = (cur / TOTAL * 100) + '%';
+  cnt.textContent = '◊©◊ú◊ë ' + cur + ' ◊û◊™◊ï◊ö ' + TOTAL;
+  back.style.display = cur > 1 ? 'flex' : 'none';
+
+  if (cur === 9) {
+    next.innerHTML = '◊©◊ú◊ó ◊ê◊™ ◊î◊©◊ê◊ú◊ï◊ü <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    next.style.cssText = 'background:linear-gradient(135deg,#25D366,#1da558);box-shadow:0 4px 20px rgba(37,211,102,.35);';
+  } else {
+    next.innerHTML = '◊î◊ë◊ê <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+    next.style.cssText = 'background:linear-gradient(135deg,var(--pink),#c0245f);box-shadow:0 4px 20px rgba(231,53,122,.3);';
+  }
+}
+
+// ‚îÄ‚îÄ HELPERS ‚îÄ‚îÄ
+function tog(el) { el.classList.toggle('sel'); }
+function rad(el, gid) {
+  document.getElementById(gid).querySelectorAll('.ol').forEach(l => l.classList.remove('sel'));
+  el.classList.add('sel');
+}
+function toggleTerms() {
+  document.getElementById('termsBox').classList.toggle('on');
+}
+function selText(gid) {
+  return [...document.getElementById(gid).querySelectorAll('.ol.sel')].map(e => e.textContent.trim()).join(', ');
+}
+function v(id) { return (document.getElementById(id)?.value||'').trim(); }
+
+// ‚îÄ‚îÄ VALIDATION ‚îÄ‚îÄ
+function validContact() {
+  if (!v('cn')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊©◊ù ◊û◊ú◊ê','err'); return false; }
+  if (!v('ce')||!v('ce').includes('@')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊û◊ô◊ô◊ú ◊™◊ß◊ô◊ü','err'); return false; }
+  if (!v('cp')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊û◊°◊§◊® ◊ò◊ú◊§◊ï◊ü','err'); return false; }
+  if (!v('cb')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊©◊ù ◊î◊¢◊°◊ß','err'); return false; }
+  return true;
+}
+function validTerms() {
+  if (!document.getElementById('termsBox').classList.contains('on')) {
+    toast('◊ê◊†◊ê ◊ê◊©◊®/◊ô ◊ê◊™ ◊™◊†◊ê◊ô ◊î◊©◊ô◊û◊ï◊©','err'); return false;
+  }
+  return true;
+}
+
+// ‚îÄ‚îÄ DATA ‚îÄ‚îÄ
+function collect() {
+  return {
+    name:v('cn'), email:v('ce'), phone:v('cp'), business:v('cb'),
+    industry:v('q1'), founded:v('q2'), location:v('q3'), social:v('q4'), service:v('q5'),
+    oneliner:v('q6'), unique:v('q7'), whychoose:v('q8'), pain:v('q9'), yeargoal:v('q10'),
+    idealclient:v('q11'), clientpain:v('q12'), clientneeds:v('q13'),
+    platforms:selText('q14g'), bestclient:v('q15'),
+    logostatus:selText('q16g'), colors:v('q17'), inspo:v('q18'), notbrand:v('q19'),
+    traits:selText('q20g'), brandperson:v('q21'), tone:selText('q22g'), dontdo:v('q23'),
+    competitors:v('q24'), compgood:v('q25'), compbad:v('q26'), differfrom:v('q27'),
+    goals:selText('q28g'), event:v('q29'), budget:selText('q30g'),
+    extra:v('q31'), source:selText('q32g'),
+  };
+}
+
+function fmtEmail(d) {
+  const nl = '\n';
+  return [
+    `◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í ‚Äî ${d.business}`,`${'='.repeat(40)}`,nl,
+    `üìã ◊§◊®◊ò◊ô ◊î◊™◊ß◊©◊®◊ï◊™`,
+    `‚Ä¢ ◊©◊ù: ${d.name}`,`‚Ä¢ ◊û◊ô◊ô◊ú: ${d.email}`,`‚Ä¢ ◊ò◊ú◊§◊ï◊ü: ${d.phone}`,`‚Ä¢ ◊¢◊°◊ß: ${d.business}`,nl,
+    `üè¢ ◊§◊®◊ò◊ô◊ù ◊ë◊°◊ô◊°◊ô◊ô◊ù`,
+    `‚Ä¢ ◊™◊ó◊ï◊ù: ${d.industry}`,`‚Ä¢ ◊î◊ß◊û◊î: ${d.founded}`,`‚Ä¢ ◊û◊ô◊ß◊ï◊ù: ${d.location}`,`‚Ä¢ ◊®◊©◊™◊ï◊™: ${d.social}`,`‚Ä¢ ◊©◊ô◊®◊ï◊™: ${d.service}`,nl,
+    `üéØ ◊û◊ô◊¶◊ï◊ë`,
+    `‚Ä¢ ◊û◊©◊§◊ò: ${d.oneliner}`,`‚Ä¢ ◊ô◊ô◊ó◊ï◊ì: ${d.unique}`,`‚Ä¢ ◊ú◊û◊î ◊ë◊ï◊ó◊®◊ô◊ù: ${d.whychoose}`,`‚Ä¢ ◊õ◊ê◊ë: ${d.pain}`,`‚Ä¢ ◊ô◊¢◊ì: ${d.yeargoal}`,nl,
+    `üë• ◊ß◊î◊ú ◊ô◊¢◊ì`,
+    `‚Ä¢ ◊ê◊ô◊ì◊ô◊ê◊ú◊ô: ${d.idealclient}`,`‚Ä¢ ◊õ◊ê◊ë: ${d.clientpain}`,`‚Ä¢ ◊¶◊®◊õ◊ô◊ù: ${d.clientneeds}`,`‚Ä¢ ◊§◊ú◊ò◊§◊ï◊®◊û◊ï◊™: ${d.platforms}`,`‚Ä¢ ◊ú◊ß◊ï◊ó ◊û◊ï◊¢◊ì◊£: ${d.bestclient}`,nl,
+    `üé® ◊û◊ô◊™◊ï◊í ◊ß◊ô◊ô◊ù`,
+    `‚Ä¢ ◊ú◊ï◊í◊ï: ${d.logostatus}`,`‚Ä¢ ◊¶◊ë◊¢◊ô◊ù: ${d.colors}`,`‚Ä¢ ◊î◊©◊®◊ê◊î: ${d.inspo}`,`‚Ä¢ ◊ú◊ê: ${d.notbrand}`,nl,
+    `‚ú® ◊ê◊ô◊©◊ô◊ï◊™`,
+    `‚Ä¢ ◊™◊õ◊ï◊†◊ï◊™: ${d.traits}`,`‚Ä¢ ◊õ◊ê◊ì◊ù: ${d.brandperson}`,`‚Ä¢ ◊ò◊ï◊ü: ${d.tone}`,`‚Ä¢ ◊ú◊ê ◊û◊™◊ê◊ô◊ù: ${d.dontdo}`,nl,
+    `‚öîÔ∏è ◊û◊™◊ó◊®◊ô◊ù`,
+    `‚Ä¢ ◊û◊™◊ó◊®◊ô◊ù: ${d.competitors}`,`‚Ä¢ ◊ó◊ï◊ñ◊ß◊ï◊™: ${d.compgood}`,`‚Ä¢ ◊ó◊ï◊ú◊©◊ï◊™: ${d.compbad}`,`‚Ä¢ ◊©◊ï◊†◊î ◊û: ${d.differfrom}`,nl,
+    `üöÄ ◊ô◊¢◊ì◊ô◊ù`,
+    `‚Ä¢ ◊û◊ò◊®◊ï◊™: ${d.goals}`,`‚Ä¢ ◊ê◊ô◊®◊ï◊¢: ${d.event}`,`‚Ä¢ ◊™◊ß◊¶◊ô◊ë: ${d.budget}`,nl,
+    `üí¨ ◊©◊ï◊†◊ï◊™`,
+    `‚Ä¢ ◊î◊¢◊®◊ï◊™: ${d.extra}`,`‚Ä¢ ◊û◊ß◊ï◊®: ${d.source}`,nl,
+    `---`,
+    `◊†◊©◊ú◊ó: ${new Date().toLocaleString('he-IL')}`
+  ].join(nl);
+}
+
+// ‚îÄ‚îÄ NOTION (early add on step 1) ‚îÄ‚îÄ
+function notionEarlyAdd() {
+  if (!MAKE_URL) return;
+  fetch(MAKE_URL, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({name:v('cn'),email:v('ce'),phone:v('cp'),business:v('cb'),
+      date:new Date().toISOString().split('T')[0], status:'◊ë◊™◊î◊ú◊ô◊ö ◊û◊ô◊ú◊ï◊ô'})
+  }).catch(()=>{});
+}
+
+// ‚îÄ‚îÄ WHATSAPP ‚îÄ‚îÄ
+function sendWA(d) {
+  if (CB_APIKEY === 'YOUR_CALLMEBOT_APIKEY') return;
+  const msg = encodeURIComponent(
+    `üìã ◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í ◊ó◊ì◊©!\nüë§ ${d.name}\nüè¢ ${d.business}\nüìû ${d.phone}\nüìß ${d.email}`
+  );
+  fetch(`https://api.callmebot.com/whatsapp.php?phone=${K_PHONE}&text=${msg}&apikey=${CB_APIKEY}`)
+    .catch(()=>{});
+}
+
+// ‚îÄ‚îÄ SUBMIT ‚îÄ‚îÄ
+async function submitForm() {
+  const btn = document.getElementById('btnNext');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span> ◊©◊ï◊ú◊ó...';
+
+  const d = collect();
+  let ok = false;
+
+  try {
+    const r = await fetch('https://api.web3forms.com/submit', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        access_key: W3F_KEY,
+        subject: `üìã ◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í ‚Äî ${d.business} | ${d.name}`,
+        from_name: d.name,
+        email: d.email,
+        message: fmtEmail(d),
+        replyto: d.email,
+        botcheck: false
+      })
     });
-    el.classList.add('selected');
-    updateProgress();
+    ok = (await r.json()).success;
+  } catch(e) {}
+
+  sendWA(d);
+
+  if (MAKE_URL) {
+    fetch(MAKE_URL, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({...d, status:'◊î◊ï◊©◊ú◊ù', date:new Date().toISOString().split('T')[0]})
+    }).catch(()=>{});
   }
 
-  // ===== GET VALUE =====
-  function getVal(id) {
-    const el = document.getElementById(id);
-    return el ? el.value.trim() || '—' : '—';
+  if (ok) {
+    showSlide(10);
+  } else {
+    toast('◊©◊í◊ô◊ê◊î ◊ë◊©◊ú◊ô◊ó◊î ‚Äî ◊†◊°◊î/◊ô ◊©◊ï◊ë','err');
+    btn.disabled = false;
+    btn.innerHTML = '◊©◊ú◊ó ◊ê◊™ ◊î◊©◊ê◊ú◊ï◊ü';
   }
-  function getRadio(name) {
-    const selected = document.querySelector(`.option-label.selected input[name="${name}"]`);
-    return selected ? selected.closest('.option-label').textContent.trim() : '—';
-  }
-  function getChecked(containerId) {
-    const options = document.querySelectorAll(`#${containerId}-options .option-label.selected`);
-    const vals = Array.from(options).map(o => o.textContent.trim());
-    return vals.length ? vals.join(', ') : '—';
-  }
+}
 
-  // ===== FORMAT MESSAGE =====
-  function buildMessage() {
-    return `📋 *שאלון מיתוג — CK Digital 360*
-━━━━━━━━━━━━━━━━━━━
-*👤 פרטי הלקוח*
-שם: ${getVal('q32')}
-עסק: ${getVal('q1')}
-תחום: ${getVal('q2')}
-שנת הקמה: ${getVal('q3')}
-מיקום: ${getVal('q4')}
-אתר/סושיאל: ${getVal('q5')}
-שירות ראשי: ${getVal('q6')}
-
-━━━━━━━━━━━━━━━━━━━
-*🎯 מיצוב ואסטרטגיה*
-תיאור העסק: ${getVal('q7')}
-מה הם הכי טובים בו: ${getVal('q8')}
-למה בוחרים בהם: ${getVal('q9')}
-כאב שפותרים: ${getVal('q10')}
-יעד לשנה הקרובה: ${getVal('q11')}
-
-━━━━━━━━━━━━━━━━━━━
-*👥 קהל יעד*
-לקוח אידיאלי: ${getVal('q12')}
-מה מציק לו: ${getVal('q13')}
-מה הוא מחפש: ${getVal('q14')}
-איפה הוא נמצא דיגיטלית: ${getChecked('q15')}
-לקוח אהוב: ${getVal('q16')}
-
-━━━━━━━━━━━━━━━━━━━
-*🎨 מיתוג קיים*
-לוגו קיים: ${getRadio('q17')}
-צבעים קיימים: ${getVal('q18')}
-מותג אהוב: ${getVal('q19')}
-מה לא מתאים: ${getVal('q20')}
-
-━━━━━━━━━━━━━━━━━━━
-*✨ אישיות המותג*
-תכונות: ${getChecked('q21')}
-המותג כאדם: ${getVal('q22')}
-טון מועדף: ${getRadio('q23')}
-מה לא מתאים: ${getVal('q24')}
-
-━━━━━━━━━━━━━━━━━━━
-*⚔️ מתחרים*
-מתחרים: ${getVal('q25')}
-מה הם עושים טוב: ${getVal('q26')}
-החולשה שלהם: ${getVal('q27')}
-בידול רצוי: ${getVal('q28')}
-
-━━━━━━━━━━━━━━━━━━━
-*🚀 יעדים*
-מטרת התהליך: ${getChecked('q29')}
-אירוע קרוב: ${getVal('q30')}
-תקציב שיווק: ${getRadio('q31')}
-
-━━━━━━━━━━━━━━━━━━━
-*📌 שונות*
-הערות: ${getVal('q33')}
-איך שמעו: ${getRadio('q34')}
-
-━━━━━━━━━━━━━━━━━━━
-_נשלח דרך שאלון המיתוג של CK Digital 360_`;
-  }
-
-  // ===== SEND =====
-  function sendWhatsApp() {
-    const msg = buildMessage();
-    const encoded = encodeURIComponent(msg);
-    const url = `https://wa.me/${PHONE}?text=${encoded}`;
-    window.open(url, '_blank');
-    showNotif('📱 נפתח WhatsApp — פשוט לחצו שלח!');
-  }
-
-  function sendEmail() {
-    const msg = buildMessage();
-    const subject = encodeURIComponent(`שאלון מיתוג — ${getVal('q1')}`);
-    const body = encodeURIComponent(msg);
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    showNotif('📧 נפתח המייל — פשוט לחצו שלח!');
-  }
-
-  function showNotif(msg) {
-    const n = document.getElementById('notif');
-    n.textContent = msg;
-    n.classList.add('show');
-    setTimeout(() => n.classList.remove('show'), 4000);
-  }
+// ‚îÄ‚îÄ TOAST ‚îÄ‚îÄ
+function toast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
 </script>
 </body>
 </html>
