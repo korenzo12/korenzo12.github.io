@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>&#1513;&#1488;&#1500;&#1493;&#1503; &#1502;&#1497;&#1514;&#1493;&#1490; | CK Digital 360</title>
+<title>◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í | CK Digital 360</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -78,7 +78,7 @@ textarea{min-height:78px;}
 .terms-row{display:flex;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 16px;background:rgba(254,193,92,.05);border:1px solid rgba(254,193,92,.2);border-radius:12px;margin-top:8px;}
 .terms-box{width:20px;height:20px;border:2px solid var(--border);border-radius:6px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .terms-box.on{background:var(--gold);border-color:var(--gold);}
-.terms-box.on::after{content:'&#10003;';color:#000;font-size:12px;font-weight:800;}
+.terms-box.on::after{content:'‚úì';color:#000;font-size:12px;font-weight:800;}
 .terms-txt{font-size:13px;color:#aaa;line-height:1.6;}
 .terms-txt a{color:var(--cyan);text-decoration:none;}
 
@@ -108,6 +108,23 @@ textarea{min-height:78px;}
 
 .spin{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite;display:inline-block;}
 @keyframes sp{to{transform:rotate(360deg);}}
+
+/* SOCIAL GRID */
+.social-grid{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+.social-row{display:flex;align-items:center;gap:10px;}
+.social-icon{font-size:17px;width:26px;text-align:center;flex-shrink:0;}
+.social-lbl{font-size:13px;color:var(--muted);width:76px;flex-shrink:0;font-weight:600;}
+.social-row input{flex:1;margin:0;}
+
+/* PALETTE PICKER */
+.palette-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px;}
+.palette-card{background:rgba(255,255,255,.04);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .2s;user-select:none;}
+.palette-card:hover{border-color:rgba(231,53,122,.35);}
+.palette-card.sel{background:rgba(231,53,122,.1);border-color:rgba(231,53,122,.6);}
+.palette-name{font-size:12px;font-weight:700;color:#aaa;margin-bottom:8px;}
+.palette-card.sel .palette-name{color:#fff;}
+.palette-swatches{display:flex;gap:5px;}
+.palette-swatch{width:22px;height:22px;border-radius:50%;flex-shrink:0;}
 </style>
 </head>
 <body>
@@ -126,15 +143,15 @@ textarea{min-height:78px;}
 <div class="slide active" id="s0">
 <div class="slide-in welcome">
   <span class="brand-logo">CK DIGITAL 360 | BY KOREN BEN EZRA</span>
-  <h1>&#1513;&#1488;&#1500;&#1493;&#1503; <span class="acc">&#1502;&#1497;&#1514;&#1493;&#1490;</span><br>&#1502;&#1511;&#1510;&#1493;&#1506;&#1497;</h1>
-  <p class="sub">&#1506;&#1493;&#1494;&#1512; &#1500;&#1504;&#1493; &#1500;&#1492;&#1489;&#1497;&#1503; &#1488;&#1514;&#1499;&#1501; &#1500;&#1506;&#1493;&#1502;&#1511; &#8212; &#1499;&#1491;&#1497; &#1513;&#1504;&#1493;&#1499;&#1500; &#1500;&#1489;&#1504;&#1493;&#1514; &#1502;&#1493;&#1514;&#1490; &#1513;&#1489;&#1488;&#1502;&#1514; &#1502;&#1497;&#1497;&#1510;&#1490; &#1488;&#1514;&#1499;&#1501;</p>
+  <h1>◊©◊ê◊ú◊ï◊ü <span class="acc">◊û◊ô◊™◊ï◊í</span><br>◊û◊ß◊¶◊ï◊¢◊ô</h1>
+  <p class="sub">◊¢◊ï◊ñ◊® ◊ú◊†◊ï ◊ú◊î◊ë◊ô◊ü ◊ê◊™◊õ◊ù ◊ú◊¢◊ï◊û◊ß ‚Äî ◊õ◊ì◊ô ◊©◊†◊ï◊õ◊ú ◊ú◊ë◊†◊ï◊™ ◊û◊ï◊™◊í ◊©◊ë◊ê◊û◊™ ◊û◊ô◊ô◊¶◊í ◊ê◊™◊õ◊ù</p>
   <div class="chips">
-    <span class="chip chip-gold">&#9201; 15&#8211;20 &#1491;&#1511;&#1493;&#1514;</span>
-    <span class="chip chip-pink">&#10022; 32 &#1513;&#1488;&#1500;&#1493;&#1514;</span>
-    <span class="chip chip-cyan">&#128274; &#1508;&#1512;&#1496;&#1497;&#1501; &#1502;&#1493;&#1490;&#1504;&#1497;&#1501;</span>
+    <span class="chip chip-gold">‚è± 15‚Äì20 ◊ì◊ß◊ï◊™</span>
+    <span class="chip chip-pink">‚ú¶ 32 ◊©◊ê◊ú◊ï◊™</span>
+    <span class="chip chip-cyan">üîí ◊§◊®◊ò◊ô◊ù ◊û◊ï◊í◊†◊ô◊ù</span>
   </div>
   <button class="btn-start" onclick="goNext()">
-    &#1489;&#1493;&#1488;&#1493; &#1504;&#1514;&#1495;&#1497;&#1500;
+    ◊ë◊ï◊ê◊ï ◊†◊™◊ó◊ô◊ú
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
   </button>
 </div>
@@ -144,214 +161,303 @@ textarea{min-height:78px;}
 <div class="slide" id="s1">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-cyan">&#128100;</div>
-    <div><div class="sec-title">&#1508;&#1512;&#1496;&#1497; &#1492;&#1514;&#1511;&#1513;&#1512;&#1493;&#1514;</div><div class="sec-sub">&#1499;&#1491;&#1497; &#1513;&#1504;&#1493;&#1499;&#1500; &#1500;&#1495;&#1494;&#1493;&#1512; &#1488;&#1500;&#1497;&#1499;&#1501;</div></div>
+    <div class="sec-icon ic-cyan">üë§</div>
+    <div><div class="sec-title">◊§◊®◊ò◊ô ◊î◊™◊ß◊©◊®◊ï◊™</div><div class="sec-sub">◊õ◊ì◊ô ◊©◊†◊ï◊õ◊ú ◊ú◊ó◊ñ◊ï◊® ◊ê◊ú◊ô◊õ◊ù</div></div>
   </div>
-  <div class="cc"><div class="ql">&#1513;&#1501; &#1502;&#1500;&#1488;<span class="req">*</span></div><input type="text" id="cn" placeholder="&#1513;&#1501; &#1508;&#1512;&#1496;&#1497; &#1493;&#1513;&#1501; &#1502;&#1513;&#1508;&#1495;&#1492;"></div>
-  <div class="cc"><div class="ql">&#1502;&#1497;&#1497;&#1500;<span class="req">*</span></div><input type="email" id="ce" placeholder="your@email.com" dir="ltr"></div>
-  <div class="cc"><div class="ql">&#1496;&#1500;&#1508;&#1493;&#1503;<span class="req">*</span></div><input type="tel" id="cp" placeholder="05X-XXXXXXX" dir="ltr"></div>
-  <div class="cc"><div class="ql">&#1513;&#1501; &#1492;&#1506;&#1505;&#1511;<span class="req">*</span></div><input type="text" id="cb" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1505;&#1496;&#1493;&#1491;&#1497;&#1493; &#1488;&#1493;&#1512; &#8212; &#1510;&#1497;&#1500;&#1493;&#1501; &#1502;&#1511;&#1510;&#1493;&#1506;&#1497;"></div>
+  <div class="cc"><div class="ql">◊©◊ù ◊û◊ú◊ê<span class="req">*</span></div><input type="text" id="cn" placeholder="◊©◊ù ◊§◊®◊ò◊ô ◊ï◊©◊ù ◊û◊©◊§◊ó◊î"></div>
+  <div class="cc"><div class="ql">◊û◊ô◊ô◊ú<span class="req">*</span></div><input type="email" id="ce" placeholder="your@email.com" dir="ltr"></div>
+  <div class="cc"><div class="ql">◊ò◊ú◊§◊ï◊ü<span class="req">*</span></div><input type="tel" id="cp" placeholder="05X-XXXXXXX" dir="ltr"></div>
+  <div class="cc"><div class="ql">◊©◊ù ◊î◊¢◊°◊ß<span class="req">*</span></div><input type="text" id="cb" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊°◊ò◊ï◊ì◊ô◊ï ◊ê◊ï◊® ‚Äî ◊¶◊ô◊ú◊ï◊ù ◊û◊ß◊¶◊ï◊¢◊ô"></div>
 </div>
 </div>
 
-<!-- SLIDE 2: &#1489;&#1505;&#1497;&#1505;&#1497; -->
+<!-- SLIDE 2: ◊ë◊°◊ô◊°◊ô -->
 <div class="slide" id="s2">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-pink">&#127970;</div>
-    <div><div class="sec-title">&#1508;&#1512;&#1496;&#1497;&#1501; &#1489;&#1505;&#1497;&#1505;&#1497;&#1497;&#1501;</div><div class="sec-sub">&#1504;&#1514;&#1495;&#1497;&#1500; &#1502;&#1492;&#1492;&#1514;&#1495;&#1500;&#1492;</div></div>
+    <div class="sec-icon ic-pink">üè¢</div>
+    <div><div class="sec-title">◊§◊®◊ò◊ô◊ù ◊ë◊°◊ô◊°◊ô◊ô◊ù</div><div class="sec-sub">◊†◊™◊ó◊ô◊ú ◊û◊î◊î◊™◊ó◊ú◊î</div></div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">01</span>&#1514;&#1495;&#1493;&#1501; &#1508;&#1506;&#1497;&#1500;&#1493;&#1514; / &#1506;&#1504;&#1507;<span class="req">*</span></div><input type="text" id="q1" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1506;&#1497;&#1510;&#1493;&#1489; &#1508;&#1504;&#1497;&#1501;, &#1511;&#1497;&#1497;&#1496;&#1512;&#1497;&#1504;&#1490;, &#1511;&#1493;&#1505;&#1502;&#1496;&#1497;&#1511;&#1492;..."></div>
-  <div class="qc"><div class="ql"><span class="qn">02</span>&#1513;&#1504;&#1514; &#1492;&#1511;&#1502;&#1492;</div><input type="text" id="q2" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: 2019"></div>
-  <div class="qc"><div class="ql"><span class="qn">03</span>&#1502;&#1497;&#1511;&#1493;&#1501; (&#1506;&#1497;&#1512; / &#1488;&#1494;&#1493;&#1512;)</div><input type="text" id="q3" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1514;&#1500; &#1488;&#1489;&#1497;&#1489; &#1493;&#1492;&#1502;&#1512;&#1499;&#1494;"></div>
-  <div class="qc"><div class="ql"><span class="qn">04</span>&#1488;&#1514;&#1512; / &#1512;&#1513;&#1514;&#1493;&#1514; &#1495;&#1489;&#1512;&#1514;&#1497;&#1493;&#1514; &#1511;&#1497;&#1497;&#1502;&#1493;&#1514;</div><input type="text" id="q4" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: instagram.com/mybusiness"></div>
-  <div class="qc"><div class="ql"><span class="qn">05</span>&#1502;&#1492; &#1492;&#1513;&#1497;&#1512;&#1493;&#1514; / &#1492;&#1502;&#1493;&#1510;&#1512; &#1492;&#1512;&#1488;&#1513;&#1497; &#1513;&#1500;&#1499;&#1501;?<span class="req">*</span></div><textarea id="q5" placeholder="&#1514;&#1488;&#1512;&#1493; &#1489;&#1511;&#1510;&#1512;&#1492; &#1502;&#1492; &#1488;&#1514;&#1501; &#1502;&#1493;&#1499;&#1512;&#1497;&#1501; / &#1502;&#1510;&#1497;&#1506;&#1497;&#1501;"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">01</span>◊™◊ó◊ï◊ù ◊§◊¢◊ô◊ú◊ï◊™ / ◊¢◊†◊£<span class="req">*</span></div><input type="text" id="q1" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊¢◊ô◊¶◊ï◊ë ◊§◊†◊ô◊ù, ◊ß◊ô◊ô◊ò◊®◊ô◊†◊í, ◊ß◊ï◊°◊û◊ò◊ô◊ß◊î..."></div>
+  <div class="qc"><div class="ql"><span class="qn">02</span>◊©◊†◊™ ◊î◊ß◊û◊î</div><input type="text" id="q2" placeholder="◊ú◊ì◊ï◊í◊û◊î: 2019"></div>
+  <div class="qc"><div class="ql"><span class="qn">03</span>◊û◊ô◊ß◊ï◊ù (◊¢◊ô◊® / ◊ê◊ñ◊ï◊®)</div><input type="text" id="q3" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊™◊ú ◊ê◊ë◊ô◊ë ◊ï◊î◊û◊®◊õ◊ñ"></div>
+  <div class="qc">
+    <div class="ql"><span class="qn">04</span>◊ê◊™◊® / ◊®◊©◊™◊ï◊™ ◊ó◊ë◊®◊™◊ô◊ï◊™ ◊ß◊ô◊ô◊û◊ï◊™</div>
+    <div class="qh">◊û◊ú◊ê◊ï ◊®◊ß ◊û◊î ◊©◊ô◊© ◊ú◊õ◊ù ‚Äî ◊ê◊ô◊ü ◊ó◊ï◊ë◊î ◊ú◊û◊ú◊ê ◊î◊õ◊ú</div>
+    <div class="social-grid">
+      <div class="social-row"><span class="social-icon">üåê</span><span class="social-lbl">◊ê◊™◊®</span><input type="text" id="q4_web" placeholder="yoursite.com" dir="ltr"></div>
+      <div class="social-row"><span class="social-icon">üì∏</span><span class="social-lbl">◊ê◊ô◊†◊°◊ò◊í◊®◊ù</span><input type="text" id="q4_ig" placeholder="@yourhandle" dir="ltr"></div>
+      <div class="social-row"><span class="social-icon">üìò</span><span class="social-lbl">◊§◊ô◊ô◊°◊ë◊ï◊ß</span><input type="text" id="q4_fb" placeholder="facebook.com/..." dir="ltr"></div>
+      <div class="social-row"><span class="social-icon">üéµ</span><span class="social-lbl">TikTok</span><input type="text" id="q4_tiktok" placeholder="@yourhandle" dir="ltr"></div>
+      <div class="social-row"><span class="social-icon">üíº</span><span class="social-lbl">◊ú◊ô◊†◊ß◊ì◊ê◊ô◊ü</span><input type="text" id="q4_li" placeholder="linkedin.com/in/..." dir="ltr"></div>
+      <div class="social-row"><span class="social-icon">‚ñ∂Ô∏è</span><span class="social-lbl">YouTube</span><input type="text" id="q4_yt" placeholder="youtube.com/..." dir="ltr"></div>
+      <div class="social-row"><span class="social-icon">üê¶</span><span class="social-lbl">X / Twitter</span><input type="text" id="q4_x" placeholder="@yourhandle" dir="ltr"></div>
+    </div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">05</span>◊û◊î ◊î◊©◊ô◊®◊ï◊™ / ◊î◊û◊ï◊¶◊® ◊î◊®◊ê◊©◊ô ◊©◊ú◊õ◊ù?<span class="req">*</span></div><textarea id="q5" placeholder="◊™◊ê◊®◊ï ◊ë◊ß◊¶◊®◊î ◊û◊î ◊ê◊™◊ù ◊û◊ï◊õ◊®◊ô◊ù / ◊û◊¶◊ô◊¢◊ô◊ù"></textarea></div>
 </div>
 </div>
 
-<!-- SLIDE 3: &#1502;&#1497;&#1510;&#1493;&#1489; -->
+<!-- SLIDE 3: ◊û◊ô◊¶◊ï◊ë -->
 <div class="slide" id="s3">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-gold">&#127919;</div>
-    <div><div class="sec-title">&#1502;&#1497;&#1510;&#1493;&#1489; &#1493;&#1488;&#1505;&#1496;&#1512;&#1496;&#1490;&#1497;&#1492;</div><div class="sec-sub">&#1502;&#1492; &#1492;&#1505;&#1497;&#1508;&#1493;&#1512; &#1513;&#1500;&#1499;&#1501;</div></div>
+    <div class="sec-icon ic-gold">üéØ</div>
+    <div><div class="sec-title">◊û◊ô◊¶◊ï◊ë ◊ï◊ê◊°◊ò◊®◊ò◊í◊ô◊î</div><div class="sec-sub">◊û◊î ◊î◊°◊ô◊§◊ï◊® ◊©◊ú◊õ◊ù</div></div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">06</span>&#1514;&#1488;&#1512; &#1488;&#1514; &#1492;&#1506;&#1505;&#1511; &#1513;&#1500;&#1498; &#1489;&#1502;&#1513;&#1508;&#1496; &#1488;&#1495;&#1491;<span class="req">*</span></div><textarea id="q6" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1488;&#1504;&#1495;&#1504;&#1493; &#1489;&#1493;&#1504;&#1497;&#1501; &#1488;&#1514;&#1512;&#1497;&#1501; &#1500;&#1506;&#1505;&#1511;&#1497;&#1501; &#1511;&#1496;&#1504;&#1497;&#1501; &#1513;&#1512;&#1493;&#1510;&#1497;&#1501; &#1500;&#1492;&#1497;&#1512;&#1488;&#1493;&#1514; &#1499;&#1502;&#1493; &#1490;&#1491;&#1493;&#1500;&#1497;&#1501;"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">07</span>&#1502;&#1492; &#1492;&#1491;&#1489;&#1512; &#1513;&#1488;&#1514;&#1501; &#1492;&#1499;&#1497; &#1496;&#1493;&#1489;&#1497;&#1501; &#1489;&#1493;?<span class="req">*</span></div><textarea id="q7" placeholder="&#1502;&#1492; &#1502;&#1497;&#1497;&#1495;&#1491; &#1488;&#1493;&#1514;&#1499;&#1501; &#1489;&#1510;&#1493;&#1512;&#1492; &#1488;&#1502;&#1497;&#1514;&#1497;&#1514;?"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">08</span>&#1502;&#1492; &#1492;&#1505;&#1497;&#1489;&#1492; &#1513;&#1500;&#1511;&#1493;&#1495;&#1493;&#1514; &#1489;&#1493;&#1495;&#1512;&#1497;&#1501; &#1489;&#1499;&#1501; &#1493;&#1500;&#1488; &#1489;&#1502;&#1514;&#1495;&#1512;&#1492;?</div><textarea id="q8" placeholder="&#1502;&#1492; &#1500;&#1511;&#1493;&#1495;&#1493;&#1514; &#1488;&#1493;&#1502;&#1512;&#1497;&#1501; &#1500;&#1499;&#1501;?"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">09</span>&#1502;&#1492; &#1492;&#1499;&#1488;&#1489; &#1492;&#1490;&#1491;&#1493;&#1500; &#1489;&#1497;&#1493;&#1514;&#1512; &#1513;&#1488;&#1514;&#1501; &#1508;&#1493;&#1514;&#1512;&#1497;&#1501;?<span class="req">*</span></div><textarea id="q9" placeholder="&#1500;&#1508;&#1504;&#1497; &#1513;&#1492;&#1500;&#1511;&#1493;&#1495; &#1502;&#1490;&#1497;&#1506; &#1488;&#1500;&#1497;&#1499;&#1501; &#8212; &#1502;&#1492; &#1502;&#1510;&#1497;&#1511; &#1500;&#1493;?"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">10</span>&#1502;&#1492; &#1492;&#1492;&#1497;&#1513;&#1490; &#1513;&#1514;&#1513;&#1502;&#1495;&#1493; &#1500;&#1512;&#1488;&#1493;&#1514; &#1489;&#1506;&#1493;&#1491; &#1513;&#1504;&#1492;?</div><textarea id="q10" placeholder="&#1488;&#1497;&#1498; &#1514;&#1491;&#1506;&#1493; &#1513;&#1492;&#1510;&#1500;&#1495;&#1514;&#1501;?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">06</span>◊™◊ê◊® ◊ê◊™ ◊î◊¢◊°◊ß ◊©◊ú◊ö ◊ë◊û◊©◊§◊ò ◊ê◊ó◊ì<span class="req">*</span></div><textarea id="q6" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊ê◊†◊ó◊†◊ï ◊ë◊ï◊†◊ô◊ù ◊ê◊™◊®◊ô◊ù ◊ú◊¢◊°◊ß◊ô◊ù ◊ß◊ò◊†◊ô◊ù ◊©◊®◊ï◊¶◊ô◊ù ◊ú◊î◊ô◊®◊ê◊ï◊™ ◊õ◊û◊ï ◊í◊ì◊ï◊ú◊ô◊ù"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">07</span>◊û◊î ◊î◊ì◊ë◊® ◊©◊ê◊™◊ù ◊î◊õ◊ô ◊ò◊ï◊ë◊ô◊ù ◊ë◊ï?<span class="req">*</span></div><textarea id="q7" placeholder="◊û◊î ◊û◊ô◊ô◊ó◊ì ◊ê◊ï◊™◊õ◊ù ◊ë◊¶◊ï◊®◊î ◊ê◊û◊ô◊™◊ô◊™?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">08</span>◊û◊î ◊î◊°◊ô◊ë◊î ◊©◊ú◊ß◊ï◊ó◊ï◊™ ◊ë◊ï◊ó◊®◊ô◊ù ◊ë◊õ◊ù ◊ï◊ú◊ê ◊ë◊û◊™◊ó◊®◊î?</div><textarea id="q8" placeholder="◊û◊î ◊ú◊ß◊ï◊ó◊ï◊™ ◊ê◊ï◊û◊®◊ô◊ù ◊ú◊õ◊ù?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">09</span>◊û◊î ◊î◊õ◊ê◊ë ◊î◊í◊ì◊ï◊ú ◊ë◊ô◊ï◊™◊® ◊©◊ê◊™◊ù ◊§◊ï◊™◊®◊ô◊ù?<span class="req">*</span></div><textarea id="q9" placeholder="◊ú◊§◊†◊ô ◊©◊î◊ú◊ß◊ï◊ó ◊û◊í◊ô◊¢ ◊ê◊ú◊ô◊õ◊ù ‚Äî ◊û◊î ◊û◊¶◊ô◊ß ◊ú◊ï?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">10</span>◊û◊î ◊î◊î◊ô◊©◊í ◊©◊™◊©◊û◊ó◊ï ◊ú◊®◊ê◊ï◊™ ◊ë◊¢◊ï◊ì ◊©◊†◊î?</div><textarea id="q10" placeholder="◊ê◊ô◊ö ◊™◊ì◊¢◊ï ◊©◊î◊¶◊ú◊ó◊™◊ù?"></textarea></div>
 </div>
 </div>
 
-<!-- SLIDE 4: &#1511;&#1492;&#1500; &#1497;&#1506;&#1491; -->
+<!-- SLIDE 4: ◊ß◊î◊ú ◊ô◊¢◊ì -->
 <div class="slide" id="s4">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-cyan">&#128101;</div>
-    <div><div class="sec-title">&#1511;&#1492;&#1500; &#1497;&#1506;&#1491;</div><div class="sec-sub">&#1500;&#1502;&#1497; &#1488;&#1514;&#1501; &#1502;&#1491;&#1489;&#1512;&#1497;&#1501;</div></div>
+    <div class="sec-icon ic-cyan">üë•</div>
+    <div><div class="sec-title">◊ß◊î◊ú ◊ô◊¢◊ì</div><div class="sec-sub">◊ú◊û◊ô ◊ê◊™◊ù ◊û◊ì◊ë◊®◊ô◊ù</div></div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">11</span>&#1502;&#1497; &#1492;&#1500;&#1511;&#1493;&#1495; &#1492;&#1488;&#1497;&#1491;&#1497;&#1488;&#1500;&#1497; &#1513;&#1500;&#1499;&#1501;?<span class="req">*</span></div><div class="qh">&#1490;&#1497;&#1500;, &#1502;&#1497;&#1503;, &#1502;&#1511;&#1510;&#1493;&#1506;, &#1512;&#1502;&#1514; &#1492;&#1499;&#1504;&#1505;&#1492;, &#1502;&#1497;&#1511;&#1493;&#1501;</div><textarea id="q11" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1504;&#1513;&#1497;&#1501; &#1489;&#1490;&#1497;&#1500; 30&#8211;50, &#1502;&#1504;&#1492;&#1500;&#1493;&#1514;, &#1514;&#1500; &#1488;&#1489;&#1497;&#1489;..."></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">12</span>&#1502;&#1492; &#1502;&#1510;&#1497;&#1511; &#1500;&#1493; &#1500;&#1508;&#1504;&#1497; &#1513;&#1492;&#1493;&#1488; &#1502;&#1490;&#1497;&#1506; &#1488;&#1500;&#1497;&#1499;&#1501;?</div><textarea id="q12" placeholder="&#1502;&#1492; &#1492;&#1493;&#1488; &#1502;&#1512;&#1490;&#1497;&#1513; &#1500;&#1508;&#1504;&#1497; &#1513;&#1502;&#1493;&#1510;&#1488; &#1488;&#1514; &#1492;&#1508;&#1514;&#1512;&#1493;&#1503; &#1513;&#1500;&#1499;&#1501;?"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">13</span>&#1502;&#1492; &#1492;&#1493;&#1488; &#1502;&#1495;&#1508;&#1513; &#1489;&#1508;&#1514;&#1512;&#1493;&#1503;? &#1502;&#1492; &#1495;&#1513;&#1493;&#1489; &#1500;&#1493;?</div><textarea id="q13" placeholder="&#1502;&#1492;&#1501; &#1492;&#1511;&#1512;&#1497;&#1496;&#1512;&#1497;&#1493;&#1504;&#1497;&#1501; &#1513;&#1500;&#1493; &#1500;&#1489;&#1495;&#1497;&#1512;&#1492;?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">11</span>◊û◊ô ◊î◊ú◊ß◊ï◊ó ◊î◊ê◊ô◊ì◊ô◊ê◊ú◊ô ◊©◊ú◊õ◊ù?<span class="req">*</span></div><div class="qh">◊í◊ô◊ú, ◊û◊ô◊ü, ◊û◊ß◊¶◊ï◊¢, ◊®◊û◊™ ◊î◊õ◊†◊°◊î, ◊û◊ô◊ß◊ï◊ù</div><textarea id="q11" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊†◊©◊ô◊ù ◊ë◊í◊ô◊ú 30‚Äì50, ◊û◊†◊î◊ú◊ï◊™, ◊™◊ú ◊ê◊ë◊ô◊ë..."></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">12</span>◊û◊î ◊û◊¶◊ô◊ß ◊ú◊ï ◊ú◊§◊†◊ô ◊©◊î◊ï◊ê ◊û◊í◊ô◊¢ ◊ê◊ú◊ô◊õ◊ù?</div><textarea id="q12" placeholder="◊û◊î ◊î◊ï◊ê ◊û◊®◊í◊ô◊© ◊ú◊§◊†◊ô ◊©◊û◊ï◊¶◊ê ◊ê◊™ ◊î◊§◊™◊®◊ï◊ü ◊©◊ú◊õ◊ù?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">13</span>◊û◊î ◊î◊ï◊ê ◊û◊ó◊§◊© ◊ë◊§◊™◊®◊ï◊ü? ◊û◊î ◊ó◊©◊ï◊ë ◊ú◊ï?</div><textarea id="q13" placeholder="◊û◊î◊ù ◊î◊ß◊®◊ô◊ò◊®◊ô◊ï◊†◊ô◊ù ◊©◊ú◊ï ◊ú◊ë◊ó◊ô◊®◊î?"></textarea></div>
   <div class="qc">
-    <div class="ql"><span class="qn">14</span>&#1488;&#1497;&#1508;&#1492; &#1492;&#1500;&#1511;&#1493;&#1495; &#1513;&#1500;&#1499;&#1501; "&#1490;&#1512;" &#1491;&#1497;&#1490;&#1497;&#1496;&#1500;&#1497;&#1514;?</div>
+    <div class="ql"><span class="qn">14</span>◊ê◊ô◊§◊î ◊î◊ú◊ß◊ï◊ó ◊©◊ú◊õ◊ù "◊í◊®" ◊ì◊ô◊í◊ô◊ò◊ú◊ô◊™?</div>
     <div class="og" id="q14g">
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1488;&#1497;&#1504;&#1505;&#1496;&#1490;&#1512;&#1501;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1508;&#1497;&#1497;&#1505;&#1489;&#1493;&#1511;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1490;&#1493;&#1490;&#1500;</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊ô◊†◊°◊ò◊í◊®◊ù</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊§◊ô◊ô◊°◊ë◊ï◊ß</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊í◊ï◊í◊ú</label>
       <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>TikTok</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1500;&#1497;&#1504;&#1511;&#1491;&#1488;&#1497;&#1503;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1492;&#1502;&#1500;&#1510;&#1493;&#1514;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1488;&#1495;&#1512;</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ú◊ô◊†◊ß◊ì◊ê◊ô◊ü</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊î◊û◊ú◊¶◊ï◊™</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊ó◊®</label>
     </div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">15</span>&#1497;&#1513; &#1500;&#1511;&#1493;&#1495; &#1513;&#1488;&#1492;&#1489;&#1514;&#1501; &#1500;&#1506;&#1489;&#1493;&#1491; &#1488;&#1497;&#1514;&#1493;? &#1514;&#1488;&#1512;&#1493; &#1488;&#1493;&#1514;&#1493;</div><textarea id="q15" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1506;&#1505;&#1511; &#1502;&#1513;&#1508;&#1495;&#1514;&#1497;, &#1502;&#1505;&#1493;&#1491;&#1512;&#1497;&#1501;, &#1497;&#1493;&#1491;&#1506;&#1497;&#1501; &#1502;&#1492; &#1492;&#1501; &#1512;&#1493;&#1510;&#1497;&#1501;..."></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">15</span>◊ô◊© ◊ú◊ß◊ï◊ó ◊©◊ê◊î◊ë◊™◊ù ◊ú◊¢◊ë◊ï◊ì ◊ê◊ô◊™◊ï? ◊™◊ê◊®◊ï ◊ê◊ï◊™◊ï</div><textarea id="q15" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊¢◊°◊ß ◊û◊©◊§◊ó◊™◊ô, ◊û◊°◊ï◊ì◊®◊ô◊ù, ◊ô◊ï◊ì◊¢◊ô◊ù ◊û◊î ◊î◊ù ◊®◊ï◊¶◊ô◊ù..."></textarea></div>
 </div>
 </div>
 
-<!-- SLIDE 5: &#1502;&#1497;&#1514;&#1493;&#1490; &#1511;&#1497;&#1497;&#1501; -->
+<!-- SLIDE 5: ◊û◊ô◊™◊ï◊í ◊ß◊ô◊ô◊ù -->
 <div class="slide" id="s5">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-pink">&#127912;</div>
-    <div><div class="sec-title">&#1502;&#1497;&#1514;&#1493;&#1490; &#1511;&#1497;&#1497;&#1501;</div><div class="sec-sub">&#1502;&#1492; &#1497;&#1513; &#1500;&#1499;&#1501; &#1499;&#1489;&#1512;</div></div>
+    <div class="sec-icon ic-pink">üé®</div>
+    <div><div class="sec-title">◊û◊ô◊™◊ï◊í ◊ß◊ô◊ô◊ù</div><div class="sec-sub">◊û◊î ◊ô◊© ◊ú◊õ◊ù ◊õ◊ë◊®</div></div>
   </div>
   <div class="qc">
-    <div class="ql"><span class="qn">16</span>&#1497;&#1513; &#1500;&#1499;&#1501; &#1500;&#1493;&#1490;&#1493; &#1499;&#1512;&#1490;&#1506;?</div>
+    <div class="ql"><span class="qn">16</span>◊ô◊© ◊ú◊õ◊ù ◊ú◊ï◊í◊ï ◊õ◊®◊í◊¢?</div>
     <div class="og" id="q16g">
-      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>&#1499;&#1503;, &#1502;&#1512;&#1493;&#1510;&#1497;&#1501; &#1502;&#1502;&#1504;&#1493;</label>
-      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>&#1499;&#1503;, &#1488;&#1489;&#1500; &#1510;&#1512;&#1497;&#1498; &#1506;&#1491;&#1499;&#1493;&#1503;</label>
-      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>&#1500;&#1488;, &#1510;&#1512;&#1497;&#1498; &#1495;&#1491;&#1513;</label>
+      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>◊õ◊ü, ◊û◊®◊ï◊¶◊ô◊ù ◊û◊û◊†◊ï</label>
+      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>◊õ◊ü, ◊ê◊ë◊ú ◊¶◊®◊ô◊ö ◊¢◊ì◊õ◊ï◊ü</label>
+      <label class="ol radio" onclick="rad(this,'q16g')"><input type="radio"><div class="ck"></div>◊ú◊ê, ◊¶◊®◊ô◊ö ◊ó◊ì◊©</label>
     </div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">17</span>&#1497;&#1513; &#1510;&#1499;&#1506;&#1497;&#1501; &#1502;&#1493;&#1490;&#1491;&#1512;&#1497;&#1501;? &#1488;&#1501; &#1499;&#1503; &#8212; &#1488;&#1497;&#1500;&#1493;?</div><input type="text" id="q17" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1499;&#1495;&#1493;&#1500; &#1504;&#1497;&#1497;&#1489;&#1497; + &#1494;&#1492;&#1489;, &#1488;&#1493;: &#1488;&#1497;&#1503; &#1506;&#1491;&#1497;&#1497;&#1503;"></div>
-  <div class="qc"><div class="ql"><span class="qn">18</span>&#1497;&#1513; &#1502;&#1493;&#1514;&#1490; &#1513;&#1488;&#1492;&#1489;&#1514;&#1501; &#1488;&#1514; &#1492;&#1493;&#1493;&#1497;&#1494;'&#1493;&#1488;&#1500; &#1513;&#1500;&#1493;?</div><textarea id="q18" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: @apple, @zara &#8212; &#1502;&#1492; &#1488;&#1492;&#1489;&#1514;&#1501; &#1513;&#1501;?"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">19</span>&#1497;&#1513; &#1502;&#1493;&#1514;&#1490; &#1513;&#1488;&#1502;&#1512;&#1514;&#1501; "&#1500;&#1488;, &#1500;&#1488; &#1499;&#1499;&#1492; &#1488;&#1504;&#1495;&#1504;&#1493; &#1504;&#1512;&#1488;&#1497;&#1501;"?</div><textarea id="q19" placeholder="&#1502;&#1492; &#1500;&#1488; &#1502;&#1514;&#1488;&#1497;&#1501; &#1500;&#1499;&#1501; &#1493;&#1497;&#1494;&#1493;&#1488;&#1500;&#1497;&#1514;?"></textarea></div>
+  <div class="qc">
+    <div class="ql"><span class="qn">17</span>◊¶◊ë◊¢◊ô◊ù ‚Äî ◊ê◊ô◊ñ◊ï ◊§◊ú◊ò◊î ◊û◊ì◊ë◊®◊™ ◊ê◊ú◊ô◊õ◊ù?</div>
+    <div class="qh">◊ë◊ó◊®◊ï ◊§◊ú◊ò◊ï◊™ ◊©◊û◊®◊í◊ô◊©◊ï◊™ ◊†◊õ◊ï◊ü ‚Äî ◊ê◊§◊©◊® ◊ú◊ë◊ó◊ï◊® ◊õ◊û◊î</div>
+    <div class="palette-grid">
+      <div class="palette-card" data-name="◊û◊ô◊†◊ô◊û◊ú ‚Äî ◊©◊ó◊ï◊® + ◊ú◊ë◊ü + ◊ê◊§◊ï◊®" onclick="togPalette(this)">
+        <div class="palette-name">◊û◊ô◊†◊ô◊û◊ú</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#1a1a1a"></div>
+          <div class="palette-swatch" style="background:#ffffff;border:1px solid #444"></div>
+          <div class="palette-swatch" style="background:#888888"></div>
+          <div class="palette-swatch" style="background:#d4d4d4"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊ê◊ú◊í◊†◊ò◊ô ‚Äî ◊†◊ô◊ô◊ë◊ô + ◊ñ◊î◊ë + ◊©◊û◊†◊™" onclick="togPalette(this)">
+        <div class="palette-name">◊ê◊ú◊í◊†◊ò◊ô</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#1a2744"></div>
+          <div class="palette-swatch" style="background:#c9a84c"></div>
+          <div class="palette-swatch" style="background:#f5f0e8"></div>
+          <div class="palette-swatch" style="background:#8b7355"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊ò◊ë◊¢ ‚Äî ◊ô◊®◊ï◊ß + ◊ó◊ï◊ù + ◊ß◊®◊ù" onclick="togPalette(this)">
+        <div class="palette-name">◊ò◊ë◊¢ & ◊ê◊®◊¶◊ô◊ï◊™</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#4a7c59"></div>
+          <div class="palette-swatch" style="background:#8b6914"></div>
+          <div class="palette-swatch" style="background:#f5ead5"></div>
+          <div class="palette-swatch" style="background:#6b4f2a"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊ê◊†◊®◊í◊ò◊ô ‚Äî ◊õ◊™◊ï◊ù + ◊ê◊ì◊ï◊ù + ◊¶◊î◊ï◊ë" onclick="togPalette(this)">
+        <div class="palette-name">◊ê◊†◊®◊í◊ò◊ô & ◊†◊ï◊¢◊ñ</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#e8380d"></div>
+          <div class="palette-swatch" style="background:#ff6b35"></div>
+          <div class="palette-swatch" style="background:#ffc300"></div>
+          <div class="palette-swatch" style="background:#1a1a1a"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊§◊ê◊©◊ü ‚Äî ◊ï◊®◊ï◊ì + ◊°◊í◊ï◊ú + ◊©◊ó◊ï◊®" onclick="togPalette(this)">
+        <div class="palette-name">◊§◊ê◊©◊ü & ◊û◊ï◊ì◊î</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#d63384"></div>
+          <div class="palette-swatch" style="background:#8b00ff"></div>
+          <div class="palette-swatch" style="background:#ff69b4"></div>
+          <div class="palette-swatch" style="background:#1a1a1a"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊ô◊ù & ◊©◊û◊ô◊ù ‚Äî ◊™◊õ◊ú◊™ + ◊ú◊ë◊ü + ◊õ◊ó◊ï◊ú" onclick="togPalette(this)">
+        <div class="palette-name">◊ô◊ù & ◊©◊û◊ô◊ù</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#0066cc"></div>
+          <div class="palette-swatch" style="background:#00b4d8"></div>
+          <div class="palette-swatch" style="background:#90e0ef"></div>
+          <div class="palette-swatch" style="background:#ffffff;border:1px solid #555"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊ò◊õ◊†◊ï◊ú◊ï◊í◊ô ‚Äî ◊õ◊ó◊ï◊ú ◊õ◊î◊î + ◊¶◊ô◊ê◊ü + ◊ê◊§◊ï◊®" onclick="togPalette(this)">
+        <div class="palette-name">◊ò◊õ◊†◊ï◊ú◊ï◊í◊ô</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#0d1b2a"></div>
+          <div class="palette-swatch" style="background:#10e2ff"></div>
+          <div class="palette-swatch" style="background:#415a77"></div>
+          <div class="palette-swatch" style="background:#e0e1dd"></div>
+        </div>
+      </div>
+      <div class="palette-card" data-name="◊®◊ï◊û◊†◊ò◊ô ‚Äî ◊ï◊®◊ï◊ì ◊¢◊ì◊ô◊ü + ◊ß◊®◊ù + ◊ñ◊î◊ë" onclick="togPalette(this)">
+        <div class="palette-name">◊®◊ï◊û◊†◊ò◊ô & ◊®◊ö</div>
+        <div class="palette-swatches">
+          <div class="palette-swatch" style="background:#f4a7b9"></div>
+          <div class="palette-swatch" style="background:#fdf0f0"></div>
+          <div class="palette-swatch" style="background:#c9a84c"></div>
+          <div class="palette-swatch" style="background:#8b4a5a"></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:10px;"><input type="text" id="q17custom" placeholder="◊¶◊ë◊¢ ◊°◊§◊¶◊ô◊§◊ô? ◊ú◊ì◊ï◊í◊û◊î: ◊õ◊ó◊ï◊ú ◊†◊ô◊ô◊ë◊ô #1a2744 ‚Äî ◊ê◊ï ◊õ◊™◊ë◊ï '◊ê◊ô◊ü ◊¢◊ì◊ô◊ô◊ü'"></div>
+  </div>
+  <div class="qc"><div class="ql"><span class="qn">18</span>◊ô◊© ◊û◊ï◊™◊í ◊©◊ê◊î◊ë◊™◊ù ◊ê◊™ ◊î◊ï◊ï◊ô◊ñ'◊ï◊ê◊ú ◊©◊ú◊ï?</div><textarea id="q18" placeholder="◊ú◊ì◊ï◊í◊û◊î: @apple, @zara ‚Äî ◊û◊î ◊ê◊î◊ë◊™◊ù ◊©◊ù?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">19</span>◊ô◊© ◊û◊ï◊™◊í ◊©◊ê◊û◊®◊™◊ù "◊ú◊ê, ◊ú◊ê ◊õ◊õ◊î ◊ê◊†◊ó◊†◊ï ◊†◊®◊ê◊ô◊ù"?</div><textarea id="q19" placeholder="◊û◊î ◊ú◊ê ◊û◊™◊ê◊ô◊ù ◊ú◊õ◊ù ◊ï◊ô◊ñ◊ï◊ê◊ú◊ô◊™?"></textarea></div>
 </div>
 </div>
 
-<!-- SLIDE 6: &#1488;&#1497;&#1513;&#1497;&#1493;&#1514; -->
+<!-- SLIDE 6: ◊ê◊ô◊©◊ô◊ï◊™ -->
 <div class="slide" id="s6">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-gold">&#10024;</div>
-    <div><div class="sec-title">&#1488;&#1497;&#1513;&#1497;&#1493;&#1514; &#1492;&#1502;&#1493;&#1514;&#1490;</div><div class="sec-sub">&#1488;&#1497;&#1498; &#1492;&#1502;&#1493;&#1514;&#1490; &#1502;&#1512;&#1490;&#1497;&#1513;</div></div>
+    <div class="sec-icon ic-gold">‚ú®</div>
+    <div><div class="sec-title">◊ê◊ô◊©◊ô◊ï◊™ ◊î◊û◊ï◊™◊í</div><div class="sec-sub">◊ê◊ô◊ö ◊î◊û◊ï◊™◊í ◊û◊®◊í◊ô◊©</div></div>
   </div>
   <div class="qc">
-    <div class="ql"><span class="qn">20</span>&#1489;&#1495;&#1512;&#1493; &#1514;&#1499;&#1493;&#1504;&#1493;&#1514; &#1513;&#1502;&#1514;&#1488;&#1512;&#1493;&#1514; &#1488;&#1514; &#1492;&#1502;&#1493;&#1514;&#1490;<span class="req">*</span></div>
+    <div class="ql"><span class="qn">20</span>◊ë◊ó◊®◊ï ◊™◊õ◊ï◊†◊ï◊™ ◊©◊û◊™◊ê◊®◊ï◊™ ◊ê◊™ ◊î◊û◊ï◊™◊í<span class="req">*</span></div>
     <div class="og" id="q20g">
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1502;&#1511;&#1510;&#1493;&#1506;&#1497;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1495;&#1501; &#1493;&#1488;&#1504;&#1493;&#1513;&#1497;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1504;&#1493;&#1506;&#1494;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1488;&#1502;&#1497;&#1503;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1495;&#1491;&#1513;&#1504;&#1497;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1502;&#1492;&#1504;&#1492; / &#1511;&#1500;&#1497;&#1500;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1497;&#1493;&#1511;&#1512;&#1514;&#1497;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1488;&#1502;&#1508;&#1514;&#1497;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1497;&#1513;&#1497;&#1512;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1502;&#1506;&#1493;&#1512;&#1512; &#1492;&#1513;&#1512;&#1488;&#1492;</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊û◊ß◊¶◊ï◊¢◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ó◊ù ◊ï◊ê◊†◊ï◊©◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊†◊ï◊¢◊ñ</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊û◊ô◊ü</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ó◊ì◊©◊†◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊û◊î◊†◊î / ◊ß◊ú◊ô◊ú</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ô◊ï◊ß◊®◊™◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ê◊û◊§◊™◊ô</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ô◊©◊ô◊®</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊û◊¢◊ï◊®◊® ◊î◊©◊®◊ê◊î</label>
     </div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">21</span>&#1488;&#1501; &#1492;&#1502;&#1493;&#1514;&#1490; &#1492;&#1497;&#1492; &#1488;&#1491;&#1501; &#8212; &#1514;&#1488;&#1512;&#1493; &#1488;&#1493;&#1514;&#1493;</div><div class="qh">&#1490;&#1497;&#1500;, &#1505;&#1490;&#1504;&#1493;&#1503; &#1500;&#1489;&#1493;&#1513;, &#1488;&#1497;&#1498; &#1492;&#1493;&#1488; &#1502;&#1491;&#1489;&#1512;</div><textarea id="q21" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1490;&#1499;&#1512; &#1499;&#1503; 35, &#1495;&#1500;&#1497;&#1508;&#1492; + &#1505;&#1504;&#1497;&#1511;&#1512;&#1505;, &#1502;&#1491;&#1489;&#1512; &#1497;&#1513;&#1512;..."></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">21</span>◊ê◊ù ◊î◊û◊ï◊™◊í ◊î◊ô◊î ◊ê◊ì◊ù ‚Äî ◊™◊ê◊®◊ï ◊ê◊ï◊™◊ï</div><div class="qh">◊í◊ô◊ú, ◊°◊í◊†◊ï◊ü ◊ú◊ë◊ï◊©, ◊ê◊ô◊ö ◊î◊ï◊ê ◊û◊ì◊ë◊®</div><textarea id="q21" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊í◊ë◊® ◊ë◊ü 35, ◊ó◊ú◊ô◊§◊î + ◊°◊†◊ô◊ß◊®◊°, ◊û◊ì◊ë◊® ◊ô◊©◊®..."></textarea></div>
   <div class="qc">
-    <div class="ql"><span class="qn">22</span>&#1502;&#1492; &#1492;&#1496;&#1493;&#1503; &#1513;&#1492;&#1499;&#1497; &#1502;&#1514;&#1488;&#1497;&#1501; &#1500;&#1499;&#1501;?</div>
+    <div class="ql"><span class="qn">22</span>◊û◊î ◊î◊ò◊ï◊ü ◊©◊î◊õ◊ô ◊û◊™◊ê◊ô◊ù ◊ú◊õ◊ù?</div>
     <div class="og" id="q22g">
-      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>&#1502;&#1511;&#1510;&#1493;&#1506;&#1497; &#1493;&#1512;&#1513;&#1502;&#1497;</label>
-      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>&#1495;&#1501; &#1493;&#1511;&#1500;&#1497;&#1500;</label>
-      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>&#1504;&#1493;&#1506;&#1494; &#1493;&#1502;&#1488;&#1514;&#1490;&#1512;</label>
-      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>&#1492;&#1493;&#1502;&#1493;&#1512;&#1497;&#1505;&#1496;&#1497;</label>
-      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>&#1502;&#1506;&#1493;&#1512;&#1512; &#1492;&#1513;&#1512;&#1488;&#1492;</label>
-      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>&#1513;&#1497;&#1500;&#1493;&#1489;</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊û◊ß◊¶◊ï◊¢◊ô ◊ï◊®◊©◊û◊ô</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊ó◊ù ◊ï◊ß◊ú◊ô◊ú</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊†◊ï◊¢◊ñ ◊ï◊û◊ê◊™◊í◊®</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊î◊ï◊û◊ï◊®◊ô◊°◊ò◊ô</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊û◊¢◊ï◊®◊® ◊î◊©◊®◊ê◊î</label>
+      <label class="ol radio" onclick="rad(this,'q22g')"><input type="radio"><div class="ck"></div>◊©◊ô◊ú◊ï◊ë</label>
     </div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">23</span>&#1502;&#1492; &#1489;&#1492;&#1495;&#1500;&#1496; &#1500;&#1488; &#1502;&#1514;&#1488;&#1497;&#1501; &#1500;&#1499;&#1501; &#1489;&#1513;&#1508;&#1492; / &#1506;&#1497;&#1510;&#1493;&#1489;?</div><textarea id="q23" placeholder="&#1502;&#1492; &#1514;&#1512;&#1488;&#1493; &#1493;&#1514;&#1490;&#1497;&#1491;&#1493; '&#1500;&#1488;, &#1494;&#1492; &#1500;&#1488; &#1488;&#1504;&#1495;&#1504;&#1493;'?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">23</span>◊û◊î ◊ë◊î◊ó◊ú◊ò ◊ú◊ê ◊û◊™◊ê◊ô◊ù ◊ú◊õ◊ù ◊ë◊©◊§◊î / ◊¢◊ô◊¶◊ï◊ë?</div><textarea id="q23" placeholder="◊û◊î ◊™◊®◊ê◊ï ◊ï◊™◊í◊ô◊ì◊ï '◊ú◊ê, ◊ñ◊î ◊ú◊ê ◊ê◊†◊ó◊†◊ï'?"></textarea></div>
 </div>
 </div>
 
-<!-- SLIDE 7: &#1502;&#1514;&#1495;&#1512;&#1497;&#1501; -->
+<!-- SLIDE 7: ◊û◊™◊ó◊®◊ô◊ù -->
 <div class="slide" id="s7">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-pink">&#9876;&#65039;</div>
-    <div><div class="sec-title">&#1502;&#1514;&#1495;&#1512;&#1497;&#1501;</div><div class="sec-sub">&#1488;&#1497;&#1508;&#1492; &#1488;&#1514;&#1501; &#1489;&#1513;&#1493;&#1511;</div></div>
+    <div class="sec-icon ic-pink">‚öîÔ∏è</div>
+    <div><div class="sec-title">◊û◊™◊ó◊®◊ô◊ù</div><div class="sec-sub">◊ê◊ô◊§◊î ◊ê◊™◊ù ◊ë◊©◊ï◊ß</div></div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">24</span>&#1510;&#1497;&#1497;&#1504;&#1493; 2&#8211;3 &#1502;&#1514;&#1495;&#1512;&#1497;&#1501; &#1506;&#1497;&#1511;&#1512;&#1497;&#1497;&#1501;</div><textarea id="q24" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1505;&#1496;&#1493;&#1491;&#1497;&#1493; X &#8212; instagram.com/studiox"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">25</span>&#1502;&#1492; &#1492;&#1502;&#1514;&#1495;&#1512;&#1497;&#1501; &#1513;&#1500;&#1499;&#1501; &#1506;&#1493;&#1513;&#1497;&#1501; &#1496;&#1493;&#1489;?</div><textarea id="q25" placeholder="&#1502;&#1492; &#1488;&#1514;&#1501; &#1502;&#1506;&#1512;&#1497;&#1499;&#1497;&#1501; &#1489;&#1492;&#1501;, &#1490;&#1501; &#1488;&#1501; &#1500;&#1488; &#1514;&#1493;&#1491;&#1493; &#1489;&#1494;&#1492; :)"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">27</span>&#1502;&#1502;&#1497; &#1488;&#1514;&#1501; &#1512;&#1493;&#1510;&#1497;&#1501; &#1500;</div><textarea id="q26" placeholder="&#1488;&#1497;&#1508;&#1492; &#1492;&#1501; &#1504;&#1499;&#1513;&#1500;&#1497;&#1501; &#1513;&#1488;&#1514;&#1501; &#1500;&#1488;?"></textarea></div>
-  <div class="qc"><div class="ql"><span class="qn">27</span>&#1502;&#1502;&#1497; &#1488;&#1514;&#1501; &#1512;&#1493;&#1510;&#1497;&#1501; &#1500;&#1492;&#1497;&#1493;&#1514; &#1513;&#1493;&#1504;&#1497;&#1501; &#1489;&#1510;&#1493;&#1512;&#1492; &#1492;&#1499;&#1497; &#1489;&#1512;&#1493;&#1512;&#1492;?</div><textarea id="q27" placeholder="&#1493;&#1502;&#1492; &#1492;&#1489;&#1497;&#1491;&#1493;&#1500; &#1513;&#1502;&#1508;&#1512;&#1497;&#1491; &#1489;&#1497;&#1504;&#1497;&#1499;&#1501;?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">24</span>◊¶◊ô◊ô◊†◊ï 2‚Äì3 ◊û◊™◊ó◊®◊ô◊ù ◊¢◊ô◊ß◊®◊ô◊ô◊ù</div><textarea id="q24" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊°◊ò◊ï◊ì◊ô◊ï X ‚Äî instagram.com/studiox"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">25</span>◊û◊î ◊î◊û◊™◊ó◊®◊ô◊ù ◊©◊ú◊õ◊ù ◊¢◊ï◊©◊ô◊ù ◊ò◊ï◊ë?</div><textarea id="q25" placeholder="◊û◊î ◊ê◊™◊ù ◊û◊¢◊®◊ô◊õ◊ô◊ù ◊ë◊î◊ù, ◊í◊ù ◊ê◊ù ◊ú◊ê ◊™◊ï◊ì◊ï ◊ë◊ñ◊î :)"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">26</span>◊û◊î ◊î◊ó◊ï◊ú◊©◊î ◊©◊ú◊î◊ù?</div><textarea id="q26" placeholder="◊ê◊ô◊§◊î ◊î◊ù ◊†◊õ◊©◊ú◊ô◊ù ◊©◊ê◊™◊ù ◊ú◊ê?"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">27</span>◊û◊û◊ô ◊ê◊™◊ù ◊®◊ï◊¶◊ô◊ù ◊ú◊î◊ô◊ï◊™ ◊©◊ï◊†◊ô◊ù ◊ë◊¶◊ï◊®◊î ◊î◊õ◊ô ◊ë◊®◊ï◊®◊î?</div><textarea id="q27" placeholder="◊ï◊û◊î ◊î◊ë◊ô◊ì◊ï◊ú ◊©◊û◊§◊®◊ô◊ì ◊ë◊ô◊†◊ô◊õ◊ù?"></textarea></div>
 </div>
 </div>
 
-<!-- SLIDE 8: &#1497;&#1506;&#1491;&#1497;&#1501; -->
+<!-- SLIDE 8: ◊ô◊¢◊ì◊ô◊ù -->
 <div class="slide" id="s8">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-gold">&#128640;</div>
-    <div><div class="sec-title">&#1497;&#1506;&#1491;&#1497;&#1501; &#1493;&#1513;&#1488;&#1497;&#1508;&#1493;&#1514;</div><div class="sec-sub">&#1500;&#1488;&#1503; &#1488;&#1514;&#1501; &#1492;&#1493;&#1500;&#1499;&#1497;&#1501;</div></div>
+    <div class="sec-icon ic-gold">üöÄ</div>
+    <div><div class="sec-title">◊ô◊¢◊ì◊ô◊ù ◊ï◊©◊ê◊ô◊§◊ï◊™</div><div class="sec-sub">◊ú◊ê◊ü ◊ê◊™◊ù ◊î◊ï◊ú◊õ◊ô◊ù</div></div>
   </div>
   <div class="qc">
-    <div class="ql"><span class="qn">28</span>&#1502;&#1492; &#1492;&#1502;&#1496;&#1512;&#1492; &#1492;&#1506;&#1497;&#1511;&#1512;&#1497;&#1514; &#1502;&#1492;&#1514;&#1492;&#1500;&#1497;&#1498; &#1492;&#1494;&#1492;?<span class="req">*</span></div>
+    <div class="ql"><span class="qn">28</span>◊û◊î ◊î◊û◊ò◊®◊î ◊î◊¢◊ô◊ß◊®◊ô◊™ ◊û◊î◊™◊î◊ú◊ô◊ö ◊î◊ñ◊î?<span class="req">*</span></div>
     <div class="og" id="q28g">
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1500;&#1493;&#1490;&#1493; &#1495;&#1491;&#1513;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1504;&#1493;&#1499;&#1495;&#1493;&#1514; &#1491;&#1497;&#1490;&#1497;&#1496;&#1500;&#1497;&#1514;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1489;&#1497;&#1491;&#1493;&#1500; &#1502;&#1502;&#1514;&#1495;&#1512;&#1497;&#1501;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1489;&#1504;&#1497;&#1497;&#1514; &#1488;&#1502;&#1493;&#1503;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1492;&#1499;&#1504;&#1492; &#1500;&#1508;&#1512;&#1505;&#1493;&#1501;</label>
-      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>&#1512;&#1497;&#1506;&#1504;&#1493;&#1503; &#1502;&#1493;&#1514;&#1490; &#1511;&#1497;&#1497;&#1501;</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ú◊ï◊í◊ï ◊ó◊ì◊©</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊†◊ï◊õ◊ó◊ï◊™ ◊ì◊ô◊í◊ô◊ò◊ú◊ô◊™</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ë◊ô◊ì◊ï◊ú ◊û◊û◊™◊ó◊®◊ô◊ù</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊ë◊†◊ô◊ô◊™ ◊ê◊û◊ï◊ü</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊î◊õ◊†◊î ◊ú◊§◊®◊°◊ï◊ù</label>
+      <label class="ol" onclick="tog(this)"><input type="checkbox"><div class="ck"></div>◊®◊ô◊¢◊†◊ï◊ü ◊û◊ï◊™◊í ◊ß◊ô◊ô◊ù</label>
     </div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">29</span>&#1497;&#1513; &#1508;&#1512;&#1493;&#1497;&#1511;&#1496; / &#1492;&#1513;&#1511;&#1492; &#1511;&#1512;&#1493;&#1489;&#1492;?</div><input type="text" id="q29" placeholder="&#1500;&#1491;&#1493;&#1490;&#1502;&#1492;: &#1492;&#1513;&#1511;&#1492; &#1489;&#1504;&#1493;&#1489;&#1502;&#1489;&#1512;, &#1499;&#1504;&#1505; &#1489;&#1497;&#1504;&#1493;&#1488;&#1512;..."></div>
+  <div class="qc"><div class="ql"><span class="qn">29</span>◊ô◊© ◊§◊®◊ï◊ô◊ß◊ò / ◊î◊©◊ß◊î ◊ß◊®◊ï◊ë◊î?</div><input type="text" id="q29" placeholder="◊ú◊ì◊ï◊í◊û◊î: ◊î◊©◊ß◊î ◊ë◊†◊ï◊ë◊û◊ë◊®, ◊õ◊†◊° ◊ë◊ô◊†◊ï◊ê◊®..."></div>
   <div class="qc">
-    <div class="ql"><span class="qn">30</span>&#1502;&#1492;&#1493; &#1514;&#1511;&#1510;&#1497;&#1489; &#1492;&#1513;&#1497;&#1493;&#1493;&#1511; &#1492;&#1495;&#1493;&#1491;&#1513;&#1497;?</div>
+    <div class="ql"><span class="qn">30</span>◊û◊î◊ï ◊™◊ß◊¶◊ô◊ë ◊î◊©◊ô◊ï◊ï◊ß ◊î◊ó◊ï◊ì◊©◊ô?</div>
     <div class="og" id="q30g">
-      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>&#1506;&#1491; &#8362;2,000</label>
-      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>&#8362;2,000&#8211;&#8362;5,000</label>
-      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>&#8362;5,000&#8211;&#8362;10,000</label>
-      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>&#1502;&#1506;&#1500; &#8362;10,000</label>
-      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>&#1488;&#1497;&#1503; &#1506;&#1491;&#1497;&#1497;&#1503;</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>◊¢◊ì ‚Ç™2,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>‚Ç™2,000‚Äì‚Ç™5,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>‚Ç™5,000‚Äì‚Ç™10,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>◊û◊¢◊ú ‚Ç™10,000</label>
+      <label class="ol radio" onclick="rad(this,'q30g')"><input type="radio"><div class="ck"></div>◊ê◊ô◊ü ◊¢◊ì◊ô◊ô◊ü</label>
     </div>
   </div>
 </div>
 </div>
 
-<!-- SLIDE 9: &#1513;&#1493;&#1504;&#1493;&#1514; + terms -->
+<!-- SLIDE 9: ◊©◊ï◊†◊ï◊™ + terms -->
 <div class="slide" id="s9">
 <div class="slide-in">
   <div class="sec-head">
-    <div class="sec-icon ic-cyan">&#128172;</div>
-    <div><div class="sec-title">&#1499;&#1502;&#1506;&#1496; &#1505;&#1497;&#1497;&#1502;&#1504;&#1493;!</div><div class="sec-sub">&#1506;&#1493;&#1491; &#1513;&#1514;&#1497; &#1513;&#1488;&#1500;&#1493;&#1514;</div></div>
+    <div class="sec-icon ic-cyan">üí¨</div>
+    <div><div class="sec-title">◊õ◊û◊¢◊ò ◊°◊ô◊ô◊û◊†◊ï!</div><div class="sec-sub">◊¢◊ï◊ì ◊©◊™◊ô ◊©◊ê◊ú◊ï◊™</div></div>
   </div>
-  <div class="qc"><div class="ql"><span class="qn">31</span>&#1497;&#1513; &#1502;&#1513;&#1492;&#1493; &#1495;&#1513;&#1493;&#1489; &#1513;&#1500;&#1488; &#1513;&#1488;&#1500;&#1504;&#1493;?</div><textarea id="q31" placeholder="&#1499;&#1500; &#1502;&#1492; &#1513;&#1495;&#1513;&#1493;&#1489; &#1500;&#1499;&#1501; &#8212; &#1508;&#1492; &#1492;&#1502;&#1511;&#1493;&#1501;"></textarea></div>
+  <div class="qc"><div class="ql"><span class="qn">31</span>◊ô◊© ◊û◊©◊î◊ï ◊ó◊©◊ï◊ë ◊©◊ú◊ê ◊©◊ê◊ú◊†◊ï?</div><textarea id="q31" placeholder="◊õ◊ú ◊û◊î ◊©◊ó◊©◊ï◊ë ◊ú◊õ◊ù ‚Äî ◊§◊î ◊î◊û◊ß◊ï◊ù"></textarea></div>
   <div class="qc">
-    <div class="ql"><span class="qn">32</span>&#1488;&#1497;&#1498; &#1513;&#1502;&#1506;&#1514;&#1501; &#1506;&#1500; CK Digital 360?</div>
+    <div class="ql"><span class="qn">32</span>◊ê◊ô◊ö ◊©◊û◊¢◊™◊ù ◊¢◊ú CK Digital 360?</div>
     <div class="og" id="q32g">
-      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>&#1488;&#1497;&#1504;&#1505;&#1496;&#1490;&#1512;&#1501;</label>
-      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>&#1492;&#1502;&#1500;&#1510;&#1492;</label>
-      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>&#1490;&#1493;&#1490;&#1500;</label>
-      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>&#1488;&#1495;&#1512;</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊ê◊ô◊†◊°◊ò◊í◊®◊ù</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊î◊û◊ú◊¶◊î</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊í◊ï◊í◊ú</label>
+      <label class="ol radio" onclick="rad(this,'q32g')"><input type="radio"><div class="ck"></div>◊ê◊ó◊®</label>
     </div>
   </div>
-  <label class="terms-row" onclick="toggleTerms()">
-    <input type="checkbox" id="termsCb" style="display:none;">
+  <div class="terms-row" onclick="toggleTerms()">
     <div class="terms-box" id="termsBox"></div>
-    <div class="terms-txt">&#1488;&#1504;&#1497; &#1502;&#1505;&#1499;&#1497;&#1501;/&#1492; &#1500;&#1499;&#1498; &#1513;-CK Digital 360 &#1497;&#1513;&#1502;&#1493;&#1512; &#1488;&#1514; &#1508;&#1512;&#1496;&#1497;&#1497; &#1493;&#1497;&#1513;&#1514;&#1502;&#1513; &#1489;&#1492;&#1501; &#1500;&#1497;&#1510;&#1497;&#1512;&#1514; &#1511;&#1513;&#1512; &#1489;&#1504;&#1493;&#1490;&#1506; &#1500;&#1513;&#1497;&#1512;&#1493;&#1514;&#1497; &#1492;&#1502;&#1497;&#1514;&#1493;&#1490;, &#1489;&#1492;&#1514;&#1488;&#1501; &#1500;&#1502;&#1491;&#1497;&#1504;&#1497;&#1493;&#1514; &#1492;&#1508;&#1512;&#1496;&#1497;&#1493;&#1514;.</div>
-  </label>
+    <div class="terms-txt">◊ê◊†◊ô ◊û◊°◊õ◊ô◊ù/◊î ◊ú◊õ◊ö ◊©-CK Digital 360 ◊ô◊©◊û◊ï◊® ◊ê◊™ ◊§◊®◊ò◊ô◊ô ◊ï◊ô◊©◊™◊û◊© ◊ë◊î◊ù ◊ú◊ô◊¶◊ô◊®◊™ ◊ß◊©◊® ◊ë◊†◊ï◊í◊¢ ◊ú◊©◊ô◊®◊ï◊™◊ô ◊î◊û◊ô◊™◊ï◊í, ◊ë◊î◊™◊ê◊ù ◊ú◊û◊ì◊ô◊†◊ô◊ï◊™ ◊î◊§◊®◊ò◊ô◊ï◊™.</div>
+  </div>
 </div>
 </div>
 
 <!-- SLIDE 10: SUCCESS -->
 <div class="slide" id="s10">
 <div class="slide-in success">
-  <div class="succ-icon">&#9989;</div>
-  <h2>&#1492;&#1513;&#1488;&#1500;&#1493;&#1503; &#1492;&#1514;&#1511;&#1489;&#1500;!</h2>
-  <p>&#1514;&#1493;&#1491;&#1492; &#1513;&#1492;&#1513;&#1511;&#1506;&#1514;&#1501; &#1488;&#1514; &#1492;&#1494;&#1502;&#1503;. &#1511;&#1493;&#1512;&#1503; &#1497;&#1495;&#1494;&#1493;&#1512; &#1488;&#1500;&#1497;&#1499;&#1501; &#1514;&#1493;&#1498; 24&#8211;48 &#1513;&#1506;&#1493;&#1514; &#1506;&#1501; &#1514;&#1493;&#1489;&#1504;&#1493;&#1514; &#1512;&#1488;&#1513;&#1493;&#1504;&#1497;&#1493;&#1514;.</p>
+  <div class="succ-icon">‚úÖ</div>
+  <h2>◊î◊©◊ê◊ú◊ï◊ü ◊î◊™◊ß◊ë◊ú!</h2>
+  <p>◊™◊ï◊ì◊î ◊©◊î◊©◊ß◊¢◊™◊ù ◊ê◊™ ◊î◊ñ◊û◊ü. ◊ß◊ï◊®◊ü ◊ô◊ó◊ñ◊ï◊® ◊ê◊ú◊ô◊õ◊ù ◊™◊ï◊ö 24‚Äì48 ◊©◊¢◊ï◊™ ◊¢◊ù ◊™◊ï◊ë◊†◊ï◊™ ◊®◊ê◊©◊ï◊†◊ô◊ï◊™.</p>
   <div class="succ-steps">
-    <div class="ss"><div class="ss-ico">&#128231;</div><div class="ss-txt">&#1511;&#1493;&#1512;&#1503; &#1511;&#1497;&#1489;&#1500; &#1488;&#1514; &#1499;&#1500; &#1492;&#1514;&#1513;&#1493;&#1489;&#1493;&#1514; &#1513;&#1500;&#1499;&#1501; &#1489;&#1502;&#1497;&#1497;&#1500;</div></div>
-    <div class="ss"><div class="ss-ico">&#128241;</div><div class="ss-txt">&#1511;&#1493;&#1512;&#1503; &#1497;&#1510;&#1493;&#1512; &#1488;&#1497;&#1514;&#1499;&#1501; &#1511;&#1513;&#1512; &#1514;&#1493;&#1498; 48 &#1513;&#1506;&#1493;&#1514;</div></div>
-    <div class="ss"><div class="ss-ico">&#10024;</div><div class="ss-txt">&#1504;&#1514;&#1495;&#1497;&#1500; &#1500;&#1489;&#1504;&#1493;&#1514; &#1488;&#1514; &#1492;&#1502;&#1493;&#1514;&#1490; &#1513;&#1500;&#1499;&#1501; &#1497;&#1495;&#1491;</div></div>
+    <div class="ss"><div class="ss-ico">üìß</div><div class="ss-txt">◊ß◊ï◊®◊ü ◊ß◊ô◊ë◊ú ◊ê◊™ ◊õ◊ú ◊î◊™◊©◊ï◊ë◊ï◊™ ◊©◊ú◊õ◊ù ◊ë◊û◊ô◊ô◊ú</div></div>
+    <div class="ss"><div class="ss-ico">üì±</div><div class="ss-txt">◊ß◊ï◊®◊ü ◊ô◊¶◊ï◊® ◊ê◊ô◊™◊õ◊ù ◊ß◊©◊® ◊™◊ï◊ö 48 ◊©◊¢◊ï◊™</div></div>
+    <div class="ss"><div class="ss-ico">‚ú®</div><div class="ss-txt">◊†◊™◊ó◊ô◊ú ◊ú◊ë◊†◊ï◊™ ◊ê◊™ ◊î◊û◊ï◊™◊í ◊©◊ú◊õ◊ù ◊ô◊ó◊ì</div></div>
   </div>
-  <div style="font-size:12px;color:var(--muted);">CK DIGITAL 360 | BY KOREN BEN EZRA<br><span style="color:var(--pink);">&#1491;&#1497;&#1490;&#1497;&#1496;&#1500; &#1489;&#1512;&#1502;&#1492; &#1488;&#1495;&#1512;&#1514;.</span></div>
+  <div style="font-size:12px;color:var(--muted);">CK DIGITAL 360 | BY KOREN BEN EZRA<br><span style="color:var(--pink);">◊ì◊ô◊í◊ô◊ò◊ú ◊ë◊®◊û◊î ◊ê◊ó◊®◊™.</span></div>
 </div>
 </div>
 
@@ -361,10 +467,10 @@ textarea{min-height:78px;}
 <div class="nav" id="nav" style="display:none;">
   <button class="btn-back" id="btnBack" onclick="goBack()" style="display:none;">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    &#1495;&#1494;&#1493;&#1512;
+    ◊ó◊ñ◊ï◊®
   </button>
   <button class="btn-next" id="btnNext" onclick="goNext()">
-    &#1492;&#1489;&#1488;
+    ◊î◊ë◊ê
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
   </button>
 </div>
@@ -372,15 +478,15 @@ textarea{min-height:78px;}
 <div class="toast" id="toast"></div>
 
 <script>
-// \u2500\u2500 CONFIG \u2500\u2500
+// ‚îÄ‚îÄ CONFIG ‚îÄ‚îÄ
 const W3F_KEY   = "42ccd402-0a0d-4322-bd16-ec63fbbbf554";
 const MAKE_URL  = "https://hook.eu1.make.com/lrada3fw7cqwto8ui58jtxbbtm1r6dh3";
 
-// \u2500\u2500 STATE \u2500\u2500
+// ‚îÄ‚îÄ STATE ‚îÄ‚îÄ
 let cur = 0;
 const TOTAL = 9; // content slides 1-9
 
-// \u2500\u2500 NAVIGATION \u2500\u2500
+// ‚îÄ‚îÄ NAVIGATION ‚îÄ‚îÄ
 function goNext() {
   if (cur === 1 && !validContact()) return;
   if (cur === 9) { if (!validTerms()) return; submitForm(); return; }
@@ -413,19 +519,19 @@ function updateUI() {
   topbar.style.display = 'block';
   nav.style.display = 'flex';
   fill.style.width = (cur / TOTAL * 100) + '%';
-  cnt.textContent = '\u05E9\u05DC\u05D1 ' + cur + ' \u05DE\u05EA\u05D5\u05DA ' + TOTAL;
+  cnt.textContent = '◊©◊ú◊ë ' + cur + ' ◊û◊™◊ï◊ö ' + TOTAL;
   back.style.display = cur > 1 ? 'flex' : 'none';
 
   if (cur === 9) {
-    next.innerHTML = '\u05E9\u05DC\u05D7 \u05D0\u05EA \u05D4\u05E9\u05D0\u05DC\u05D5\u05DF <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+    next.innerHTML = '◊©◊ú◊ó ◊ê◊™ ◊î◊©◊ê◊ú◊ï◊ü <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
     next.style.cssText = 'background:linear-gradient(135deg,#25D366,#1da558);box-shadow:0 4px 20px rgba(37,211,102,.35);';
   } else {
-    next.innerHTML = '\u05D4\u05D1\u05D0 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+    next.innerHTML = '◊î◊ë◊ê <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>';
     next.style.cssText = 'background:linear-gradient(135deg,var(--pink),#c0245f);box-shadow:0 4px 20px rgba(231,53,122,.3);';
   }
 }
 
-// \u2500\u2500 HELPERS \u2500\u2500
+// ‚îÄ‚îÄ HELPERS ‚îÄ‚îÄ
 function tog(el) { el.classList.toggle('sel'); }
 function rad(el, gid) {
   document.getElementById(gid).querySelectorAll('.ol').forEach(l => l.classList.remove('sel'));
@@ -434,35 +540,40 @@ function rad(el, gid) {
 function toggleTerms() {
   document.getElementById('termsBox').classList.toggle('on');
 }
+function togPalette(el) { el.classList.toggle('sel'); }
 function selText(gid) {
   return [...document.getElementById(gid).querySelectorAll('.ol.sel')].map(e => e.textContent.trim()).join(', ');
 }
 function v(id) { return (document.getElementById(id)?.value||'').trim(); }
 
-// \u2500\u2500 VALIDATION \u2500\u2500
+// ‚îÄ‚îÄ VALIDATION ‚îÄ‚îÄ
 function validContact() {
-  if (!v('cn')) { toast('\u05D0\u05E0\u05D0 \u05DE\u05DC\u05D0/\u05D9 \u05E9\u05DD \u05DE\u05DC\u05D0','err'); return false; }
-  if (!v('ce')||!v('ce').includes('@')) { toast('\u05D0\u05E0\u05D0 \u05DE\u05DC\u05D0/\u05D9 \u05DE\u05D9\u05D9\u05DC \u05EA\u05E7\u05D9\u05DF','err'); return false; }
-  if (!v('cp')) { toast('\u05D0\u05E0\u05D0 \u05DE\u05DC\u05D0/\u05D9 \u05DE\u05E1\u05E4\u05E8 \u05D8\u05DC\u05E4\u05D5\u05DF','err'); return false; }
-  if (!v('cb')) { toast('\u05D0\u05E0\u05D0 \u05DE\u05DC\u05D0/\u05D9 \u05E9\u05DD \u05D4\u05E2\u05E1\u05E7','err'); return false; }
+  if (!v('cn')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊©◊ù ◊û◊ú◊ê','err'); return false; }
+  if (!v('ce')||!v('ce').includes('@')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊û◊ô◊ô◊ú ◊™◊ß◊ô◊ü','err'); return false; }
+  if (!v('cp')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊û◊°◊§◊® ◊ò◊ú◊§◊ï◊ü','err'); return false; }
+  if (!v('cb')) { toast('◊ê◊†◊ê ◊û◊ú◊ê/◊ô ◊©◊ù ◊î◊¢◊°◊ß','err'); return false; }
   return true;
 }
 function validTerms() {
   if (!document.getElementById('termsBox').classList.contains('on')) {
-    toast('\u05D0\u05E0\u05D0 \u05D0\u05E9\u05E8/\u05D9 \u05D0\u05EA \u05EA\u05E0\u05D0\u05D9 \u05D4\u05E9\u05D9\u05DE\u05D5\u05E9','err'); return false;
+    toast('◊ê◊†◊ê ◊ê◊©◊®/◊ô ◊ê◊™ ◊™◊†◊ê◊ô ◊î◊©◊ô◊û◊ï◊©','err'); return false;
   }
   return true;
 }
 
-// \u2500\u2500 DATA \u2500\u2500
+// ‚îÄ‚îÄ DATA ‚îÄ‚îÄ
 function collect() {
   return {
     name:v('cn'), email:v('ce'), phone:v('cp'), business:v('cb'),
-    industry:v('q1'), founded:v('q2'), location:v('q3'), social:v('q4'), service:v('q5'),
+    industry:v('q1'), founded:v('q2'), location:v('q3'),
+    social:[['üåê ◊ê◊™◊®','q4_web'],['üì∏ ◊ê◊ô◊†◊°◊ò◊í◊®◊ù','q4_ig'],['üìò ◊§◊ô◊ô◊°◊ë◊ï◊ß','q4_fb'],['üéµ TikTok','q4_tiktok'],['üíº ◊ú◊ô◊†◊ß◊ì◊ê◊ô◊ü','q4_li'],['‚ñ∂Ô∏è YouTube','q4_yt'],['üê¶ X/Twitter','q4_x']].map(([l,id])=>{const val=v(id);return val?l+': '+val:'';}).filter(Boolean).join(' | ')||'◊ú◊ê ◊¶◊ï◊ô◊ü',
+    service:v('q5'),
     oneliner:v('q6'), unique:v('q7'), whychoose:v('q8'), pain:v('q9'), yeargoal:v('q10'),
     idealclient:v('q11'), clientpain:v('q12'), clientneeds:v('q13'),
     platforms:selText('q14g'), bestclient:v('q15'),
-    logostatus:selText('q16g'), colors:v('q17'), inspo:v('q18'), notbrand:v('q19'),
+    logostatus:selText('q16g'),
+    colors:(()=>{const palettes=[...document.querySelectorAll('.palette-card.sel')].map(c=>c.dataset.name).join(', ');const custom=v('q17custom');return [palettes,custom].filter(Boolean).join(' + ')||'◊ú◊ê ◊†◊ë◊ó◊®';})(),
+    inspo:v('q18'), notbrand:v('q19'),
     traits:selText('q20g'), brandperson:v('q21'), tone:selText('q22g'), dontdo:v('q23'),
     competitors:v('q24'), compgood:v('q25'), compbad:v('q26'), differfrom:v('q27'),
     goals:selText('q28g'), event:v('q29'), budget:selText('q30g'),
@@ -473,46 +584,46 @@ function collect() {
 function fmtEmail(d) {
   const nl = '\n';
   return [
-    `\u05E9\u05D0\u05DC\u05D5\u05DF \u05DE\u05D9\u05EA\u05D5\u05D2 \u2014 ${d.business}`,`${'='.repeat(40)}`,nl,
-    `\u1F4CB \u05E4\u05E8\u05D8\u05D9 \u05D4\u05EA\u05E7\u05E9\u05E8\u05D5\u05EA`,
-    `\u2022 \u05E9\u05DD: ${d.name}`,`\u2022 \u05DE\u05D9\u05D9\u05DC: ${d.email}`,`\u2022 \u05D8\u05DC\u05E4\u05D5\u05DF: ${d.phone}`,`\u2022 \u05E2\u05E1\u05E7: ${d.business}`,nl,
-    `\u1F3E2 \u05E4\u05E8\u05D8\u05D9\u05DD \u05D1\u05E1\u05D9\u05E1\u05D9\u05D9\u05DD`,
-    `\u2022 \u05EA\u05D7\u05D5\u05DD: ${d.industry}`,`\u2022 \u05D4\u05E7\u05DE\u05D4: ${d.founded}`,`\u2022 \u05DE\u05D9\u05E7\u05D5\u05DD: ${d.location}`,`\u2022 \u05E8\u05E9\u05EA\u05D5\u05EA: ${d.social}`,`\u2022 \u05E9\u05D9\u05E8\u05D5\u05EA: ${d.service}`,nl,
-    `\u1F3AF \u05DE\u05D9\u05E6\u05D5\u05D1`,
-    `\u2022 \u05DE\u05E9\u05E4\u05D8: ${d.oneliner}`,`\u2022 \u05D9\u05D9\u05D7\u05D5\u05D3: ${d.unique}`,`\u2022 \u05DC\u05DE\u05D4 \u05D1\u05D5\u05D7\u05E8\u05D9\u05DD: ${d.whychoose}`,`\u2022 \u05DB\u05D0\u05D1: ${d.pain}`,`\u2022 \u05D9\u05E2\u05D3: ${d.yeargoal}`,nl,
-    `\u1F465 \u05E7\u05D4\u05DC \u05D9\u05E2\u05D3`,
-    `\u2022 \u05D0\u05D9\u05D3\u05D9\u05D0\u05DC\u05D9: ${d.idealclient}`,`\u2022 \u05DB\u05D0\u05D1: ${d.clientpain}`,`\u2022 \u05E6\u05E8\u05DB\u05D9\u05DD: ${d.clientneeds}`,`\u2022 \u05E4\u05DC\u05D8\u05E4\u05D5\u05E8\u05DE\u05D5\u05EA: ${d.platforms}`,`\u2022 \u05DC\u05E7\u05D5\u05D7 \u05DE\u05D5\u05E2\u05D3\u05E3: ${d.bestclient}`,nl,
-    `\u1F3A8 \u05DE\u05D9\u05EA\u05D5\u05D2 \u05E7\u05D9\u05D9\u05DD`,
-    `\u2022 \u05DC\u05D5\u05D2\u05D5: ${d.logostatus}`,`\u2022 \u05E6\u05D1\u05E2\u05D9\u05DD: ${d.colors}`,`\u2022 \u05D4\u05E9\u05E8\u05D0\u05D4: ${d.inspo}`,`\u2022 \u05DC\u05D0: ${d.notbrand}`,nl,
-    `\u2728 \u05D0\u05D9\u05E9\u05D9\u05D5\u05EA`,
-    `\u2022 \u05EA\u05DB\u05D5\u05E0\u05D5\u05EA: ${d.traits}`,`\u2022 \u05DB\u05D0\u05D3\u05DD: ${d.brandperson}`,`\u2022 \u05D8\u05D5\u05DF: ${d.tone}`,`\u2022 \u05DC\u05D0 \u05DE\u05EA\u05D0\u05D9\u05DD: ${d.dontdo}`,nl,
-    `\u2694\uFE0F \u05DE\u05EA\u05D7\u05E8\u05D9\u05DD`,
-    `\u2022 \u05DE\u05EA\u05D7\u05E8\u05D9\u05DD: ${d.competitors}`,`\u2022 \u05D7\u05D5\u05D6\u05E7\u05D5\u05EA: ${d.compgood}`,`\u2022 \u05D7\u05D5\u05DC\u05E9\u05D5\u05EA: ${d.compbad}`,`\u2022 \u05E9\u05D5\u05E0\u05D4 \u05DE: ${d.differfrom}`,nl,
-    `\u1F680 \u05D9\u05E2\u05D3\u05D9\u05DD`,
-    `\u2022 \u05DE\u05D8\u05E8\u05D5\u05EA: ${d.goals}`,`\u2022 \u05D0\u05D9\u05E8\u05D5\u05E2: ${d.event}`,`\u2022 \u05EA\u05E7\u05E6\u05D9\u05D1: ${d.budget}`,nl,
-    `\u1F4AC \u05E9\u05D5\u05E0\u05D5\u05EA`,
-    `\u2022 \u05D4\u05E2\u05E8\u05D5\u05EA: ${d.extra}`,`\u2022 \u05DE\u05E7\u05D5\u05E8: ${d.source}`,nl,
+    `◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í ‚Äî ${d.business}`,`${'='.repeat(40)}`,nl,
+    `üìã ◊§◊®◊ò◊ô ◊î◊™◊ß◊©◊®◊ï◊™`,
+    `‚Ä¢ ◊©◊ù: ${d.name}`,`‚Ä¢ ◊û◊ô◊ô◊ú: ${d.email}`,`‚Ä¢ ◊ò◊ú◊§◊ï◊ü: ${d.phone}`,`‚Ä¢ ◊¢◊°◊ß: ${d.business}`,nl,
+    `üè¢ ◊§◊®◊ò◊ô◊ù ◊ë◊°◊ô◊°◊ô◊ô◊ù`,
+    `‚Ä¢ ◊™◊ó◊ï◊ù: ${d.industry}`,`‚Ä¢ ◊î◊ß◊û◊î: ${d.founded}`,`‚Ä¢ ◊û◊ô◊ß◊ï◊ù: ${d.location}`,`‚Ä¢ ◊®◊©◊™◊ï◊™: ${d.social}`,`‚Ä¢ ◊©◊ô◊®◊ï◊™: ${d.service}`,nl,
+    `üéØ ◊û◊ô◊¶◊ï◊ë`,
+    `‚Ä¢ ◊û◊©◊§◊ò: ${d.oneliner}`,`‚Ä¢ ◊ô◊ô◊ó◊ï◊ì: ${d.unique}`,`‚Ä¢ ◊ú◊û◊î ◊ë◊ï◊ó◊®◊ô◊ù: ${d.whychoose}`,`‚Ä¢ ◊õ◊ê◊ë: ${d.pain}`,`‚Ä¢ ◊ô◊¢◊ì: ${d.yeargoal}`,nl,
+    `üë• ◊ß◊î◊ú ◊ô◊¢◊ì`,
+    `‚Ä¢ ◊ê◊ô◊ì◊ô◊ê◊ú◊ô: ${d.idealclient}`,`‚Ä¢ ◊õ◊ê◊ë: ${d.clientpain}`,`‚Ä¢ ◊¶◊®◊õ◊ô◊ù: ${d.clientneeds}`,`‚Ä¢ ◊§◊ú◊ò◊§◊ï◊®◊û◊ï◊™: ${d.platforms}`,`‚Ä¢ ◊ú◊ß◊ï◊ó ◊û◊ï◊¢◊ì◊£: ${d.bestclient}`,nl,
+    `üé® ◊û◊ô◊™◊ï◊í ◊ß◊ô◊ô◊ù`,
+    `‚Ä¢ ◊ú◊ï◊í◊ï: ${d.logostatus}`,`‚Ä¢ ◊¶◊ë◊¢◊ô◊ù: ${d.colors}`,`‚Ä¢ ◊î◊©◊®◊ê◊î: ${d.inspo}`,`‚Ä¢ ◊ú◊ê: ${d.notbrand}`,nl,
+    `‚ú® ◊ê◊ô◊©◊ô◊ï◊™`,
+    `‚Ä¢ ◊™◊õ◊ï◊†◊ï◊™: ${d.traits}`,`‚Ä¢ ◊õ◊ê◊ì◊ù: ${d.brandperson}`,`‚Ä¢ ◊ò◊ï◊ü: ${d.tone}`,`‚Ä¢ ◊ú◊ê ◊û◊™◊ê◊ô◊ù: ${d.dontdo}`,nl,
+    `‚öîÔ∏è ◊û◊™◊ó◊®◊ô◊ù`,
+    `‚Ä¢ ◊û◊™◊ó◊®◊ô◊ù: ${d.competitors}`,`‚Ä¢ ◊ó◊ï◊ñ◊ß◊ï◊™: ${d.compgood}`,`‚Ä¢ ◊ó◊ï◊ú◊©◊ï◊™: ${d.compbad}`,`‚Ä¢ ◊©◊ï◊†◊î ◊û: ${d.differfrom}`,nl,
+    `üöÄ ◊ô◊¢◊ì◊ô◊ù`,
+    `‚Ä¢ ◊û◊ò◊®◊ï◊™: ${d.goals}`,`‚Ä¢ ◊ê◊ô◊®◊ï◊¢: ${d.event}`,`‚Ä¢ ◊™◊ß◊¶◊ô◊ë: ${d.budget}`,nl,
+    `üí¨ ◊©◊ï◊†◊ï◊™`,
+    `‚Ä¢ ◊î◊¢◊®◊ï◊™: ${d.extra}`,`‚Ä¢ ◊û◊ß◊ï◊®: ${d.source}`,nl,
     `---`,
-    `\u05E0\u05E9\u05DC\u05D7: ${new Date().toLocaleString('he-IL')}`
+    `◊†◊©◊ú◊ó: ${new Date().toLocaleString('he-IL')}`
   ].join(nl);
 }
 
-// \u2500\u2500 NOTION (early add on step 1) \u2500\u2500
+// ‚îÄ‚îÄ NOTION (early add on step 1) ‚îÄ‚îÄ
 function notionEarlyAdd() {
   if (!MAKE_URL) return;
   fetch(MAKE_URL, {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify({name:v('cn'),email:v('ce'),phone:v('cp'),business:v('cb'),
-      date:new Date().toISOString().split('T')[0], status:'\u05D1\u05EA\u05D4\u05DC\u05D9\u05DA \u05DE\u05D9\u05DC\u05D5\u05D9'})
+      date:new Date().toISOString().split('T')[0], status:'◊ë◊™◊î◊ú◊ô◊ö ◊û◊ô◊ú◊ï◊ô'})
   }).catch(()=>{});
 }
 
 
-// \u2500\u2500 SUBMIT \u2500\u2500
+// ‚îÄ‚îÄ SUBMIT ‚îÄ‚îÄ
 async function submitForm() {
   const btn = document.getElementById('btnNext');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span> \u05E9\u05D5\u05DC\u05D7...';
+  btn.innerHTML = '<span class="spin"></span> ◊©◊ï◊ú◊ó...';
 
   const d = collect();
   let ok = false;
@@ -522,7 +633,7 @@ async function submitForm() {
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
         access_key: W3F_KEY,
-        subject: `\u1F4CB \u05E9\u05D0\u05DC\u05D5\u05DF \u05DE\u05D9\u05EA\u05D5\u05D2 \u2014 ${d.business} | ${d.name}`,
+        subject: `üìã ◊©◊ê◊ú◊ï◊ü ◊û◊ô◊™◊ï◊í ‚Äî ${d.business} | ${d.name}`,
         from_name: d.name,
         email: d.email,
         message: fmtEmail(d),
@@ -536,20 +647,20 @@ async function submitForm() {
   if (MAKE_URL) {
     fetch(MAKE_URL, {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({...d, status:'\u05D4\u05D5\u05E9\u05DC\u05DD', date:new Date().toISOString().split('T')[0]})
+      body: JSON.stringify({...d, status:'◊î◊ï◊©◊ú◊ù', date:new Date().toISOString().split('T')[0]})
     }).catch(()=>{});
   }
 
   if (ok) {
     showSlide(10);
   } else {
-    toast('\u05E9\u05D2\u05D9\u05D0\u05D4 \u05D1\u05E9\u05DC\u05D9\u05D7\u05D4 \u2014 \u05E0\u05E1\u05D4/\u05D9 \u05E9\u05D5\u05D1','err');
+    toast('◊©◊í◊ô◊ê◊î ◊ë◊©◊ú◊ô◊ó◊î ‚Äî ◊†◊°◊î/◊ô ◊©◊ï◊ë','err');
     btn.disabled = false;
-    btn.innerHTML = '\u05E9\u05DC\u05D7 \u05D0\u05EA \u05D4\u05E9\u05D0\u05DC\u05D5\u05DF';
+    btn.innerHTML = '◊©◊ú◊ó ◊ê◊™ ◊î◊©◊ê◊ú◊ï◊ü';
   }
 }
 
-// \u2500\u2500 TOAST \u2500\u2500
+// ‚îÄ‚îÄ TOAST ‚îÄ‚îÄ
 function toast(msg, type='') {
   const t = document.getElementById('toast');
   t.textContent = msg;
