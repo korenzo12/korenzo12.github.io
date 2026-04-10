@@ -619,8 +619,8 @@ function slackNotify(msg) {
 // ── EARLY ADD (step 1 — contact info only) ──
 function notionEarlyAdd() {
   if (!MAKE_URL) return;
-  const data = {name:v('cn'),phone:v('cp'),business:v('cb'),
-    date:new Date().toISOString().split('T')[0], status:'לא הושלם', earlyAdd:'true', contactEmail:v('ce')};
+  const data = {name:v('cn'),email:v('ce'),phone:v('cp'),business:v('cb'),
+    date:new Date().toISOString().split('T')[0], status:'לא הושלם'};
   fetch(MAKE_URL, {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify(data)
