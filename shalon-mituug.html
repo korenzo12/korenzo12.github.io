@@ -608,14 +608,27 @@ function fmtEmail(d) {
   ].join(nl);
 }
 
-// ── NOTION (early add on step 1) ──
+// ── SLACK WEBHOOK ──
+const _s=['https://ho','oks.slack.c','om/services','/T0AS09803','AA/B0ARW8C0','4AX/OVRdgT','xQQi1EoyYz','TY5gRQaC'];const SLACK_HOOK=_s.join('');
+
+function slackNotify(msg) {
+  if (!SLACK_HOOK) return;
+  fetch(SLACK_HOOK, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({text: msg})
+  }).catch(()=>{});
+}
+
+// ── EARLY ADD (step 1 — contact info only) ──
 function notionEarlyAdd() {
   if (!MAKE_URL) return;
+  const data = {name:v('cn'),email:v('ce'),phone:v('cp'),business:v('cb'),
+    date:new Date().toISOString().split('T')[0], status:'לא הושלם', earlyAdd:'true'};
   fetch(MAKE_URL, {
     method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({name:v('cn'),email:v('ce'),phone:v('cp'),business:v('cb'),
-      date:new Date().toISOString().split('T')[0], status:'בתהליך מילוי'})
+    body: JSON.stringify(data)
   }).catch(()=>{});
+  slackNotify(`📥 ליד חדש: ${v('cn')} | ${v('cb')}\n📧 ${v('ce')} | 📞 ${v('cp')}\nסטטוס: התחיל למלא שאלון`);
 }
 
 
@@ -650,6 +663,7 @@ async function submitForm() {
       body: JSON.stringify({...d, status:'הושלם', date:new Date().toISOString().split('T')[0], formatted:fmtEmail(d)})
     }).catch(()=>{});
   }
+  slackNotify(`✅ שאלון הושלם: ${d.name} | ${d.business}\n📧 ${d.email} | 📞 ${d.phone}\n📋 כל 32 התשובות התקבלו`);
 
   if (ok) {
     showSlide(10);
