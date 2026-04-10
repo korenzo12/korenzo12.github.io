@@ -608,12 +608,16 @@ function fmtEmail(d) {
   ].join(nl);
 }
 
-// ── SLACK WEBHOOK ──
-const _s=['https://ho','oks.slack.c','om/services','/T0AS09803','AA/B0ARW8C0','4AX/OVRdgT','xQQi1EoyYz','TY5gRQaC'];const SLACK_HOOK=_s.join('');
+// ── TELEGRAM NOTIFY ──
+const _tg=['8694744696:A','AG0o8uSrwg7','aJx_QeENLeq','ut1y9YZt0cRo'];
+const TG_TOKEN=_tg.join('');const TG_CHAT='5083226664';
 
-function slackNotify(msg) {
-  if (!SLACK_HOOK) return;
-  navigator.sendBeacon(SLACK_HOOK, new Blob([JSON.stringify({text: msg})], {type:'application/json'}));
+function tgNotify(msg) {
+  if (!TG_TOKEN) return;
+  fetch('https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({chat_id:TG_CHAT, text:msg})
+  }).catch(()=>{});
 }
 
 // ── EARLY ADD (step 1 — contact info only) ──
@@ -625,7 +629,7 @@ function notionEarlyAdd() {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify(data)
   }).catch(()=>{});
-  slackNotify(`📥 ליד חדש: ${v('cn')} | ${v('cb')}\n📧 ${v('ce')} | 📞 ${v('cp')}\nסטטוס: התחיל למלא שאלון`);
+  tgNotify(`📥 ליד חדש: ${v('cn')} | ${v('cb')}\n📧 ${v('ce')} | 📞 ${v('cp')}\nסטטוס: התחיל למלא שאלון`);
 }
 
 
@@ -660,7 +664,7 @@ async function submitForm() {
       body: JSON.stringify({...d, status:'הושלם', date:new Date().toISOString().split('T')[0], formatted:fmtEmail(d)})
     }).catch(()=>{});
   }
-  slackNotify(`✅ שאלון הושלם: ${d.name} | ${d.business}\n📧 ${d.email} | 📞 ${d.phone}\n📋 כל 32 התשובות התקבלו`);
+  tgNotify(`✅ שאלון הושלם: ${d.name} | ${d.business}\n📧 ${d.email} | 📞 ${d.phone}\n📋 כל 32 התשובות התקבלו`);
 
   if (ok) {
     showSlide(10);
