@@ -647,7 +647,7 @@ async function submitForm() {
   if (MAKE_URL) {
     fetch(MAKE_URL, {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({...d, status:'הושלם', date:new Date().toISOString().split('T')[0]})
+      body: JSON.stringify({...d, status:'הושלם', date:new Date().toISOString().split('T')[0], formatted:fmtEmail(d)})
     }).catch(()=>{});
   }
 
