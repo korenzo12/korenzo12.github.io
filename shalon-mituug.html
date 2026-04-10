@@ -613,10 +613,7 @@ const _s=['https://ho','oks.slack.c','om/services','/T0AS09803','AA/B0ARW8C0','4
 
 function slackNotify(msg) {
   if (!SLACK_HOOK) return;
-  fetch(SLACK_HOOK, {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({text: msg})
-  }).catch(()=>{});
+  navigator.sendBeacon(SLACK_HOOK, new Blob([JSON.stringify({text: msg})], {type:'application/json'}));
 }
 
 // ── EARLY ADD (step 1 — contact info only) ──
