@@ -623,8 +623,8 @@ function tgNotify(msg) {
 // ── EARLY ADD (step 1 — contact info only) ──
 function notionEarlyAdd() {
   if (!MAKE_URL) return;
-  const data = {name:v('cn'),email:v('ce'),phone:v('cp'),business:v('cb'),
-    date:new Date().toISOString().split('T')[0], status:'לא הושלם'};
+  const data = {name:v('cn'),email:'',phone:v('cp'),business:v('cb'),
+    date:new Date().toISOString().split('T')[0], status:'לא הושלם', contactEmail:v('ce')};
   fetch(MAKE_URL, {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify(data)
@@ -640,39 +640,34 @@ async function submitForm() {
   btn.innerHTML = '<span class="spin"></span> שולח...';
 
   const d = collect();
-  let ok = false;
 
-  try {
-    const r = await fetch('https://api.web3forms.com/submit', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        access_key: W3F_KEY,
-        subject: `📋 שאלון מיתוג — ${d.business} | ${d.name}`,
-        from_name: d.name,
-        email: d.email,
-        message: fmtEmail(d),
-        replyto: d.email,
-        botcheck: false
-      })
-    });
-    ok = (await r.json()).success;
-  } catch(e) {}
+  // Web3Forms — fire and forget (sends answers to Koren's email)
+  fetch('https://api.web3forms.com/submit', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      access_key: W3F_KEY,
+      subject: `📋 שאלון מיתוג — ${d.business} | ${d.name}`,
+      from_name: d.name,
+      email: d.email,
+      message: fmtEmail(d),
+      replyto: d.email,
+      botcheck: false
+    })
+  }).catch(()=>{});
 
+  // Make — Notion + Gmail to client
   if (MAKE_URL) {
     fetch(MAKE_URL, {
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({...d, status:'הושלם', date:new Date().toISOString().split('T')[0], formatted:fmtEmail(d)})
     }).catch(()=>{});
   }
+
+  // Telegram — notify Koren
   tgNotify(`✅ שאלון הושלם: ${d.name} | ${d.business}\n📧 ${d.email} | 📞 ${d.phone}\n📋 כל 32 התשובות התקבלו`);
 
-  if (ok) {
-    showSlide(10);
-  } else {
-    toast('שגיאה בשליחה — נסה/י שוב','err');
-    btn.disabled = false;
-    btn.innerHTML = 'שלח את השאלון';
-  }
+  // Always show success — all sends are fire-and-forget
+  showSlide(10);
 }
 
 // ── TOAST ──
