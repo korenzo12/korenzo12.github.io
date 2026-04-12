@@ -635,10 +635,20 @@ function tgNotify(msg) {
   }).catch(()=>{});
 }
 
-// ── EARLY ADD (step 1 — Telegram only, no Notion) ──
-function notionEarlyAdd() {
-  tgNotify(`📥 ליד חדש: ${v('cn')} | ${v('cb')}\n📧 ${v('ce')} | 📞 ${v('cp')}\nסטטוס: התחיל למלא שאלון`);
-}
+  // ── EARLY ADD (step 1 — Telegram + Notion) ──
+  function notionEarlyAdd() {
+    tgNotify(`📥 ליד חדש: ${v('cn')} | ${v('cb')}\n📧 ${v('ce')} | 📞 ${v('cp')}\nסטטוס: התחיל למלא שאלון`);
+    if (MAKE_URL) {
+      fetch(MAKE_URL, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          name: v('cn'), email: v('ce'), phone: v('cp'), business: v('cb'),
+          status: 'התחיל למלא',
+          date: new Date().toISOString().split('T')[0]
+        })
+      }).catch(()=>{});
+    }
+  }
 
 
 // ── SUBMIT ──
