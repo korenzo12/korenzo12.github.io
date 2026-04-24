@@ -1,0 +1,10 @@
+node_modules/
+out/
+.cache/
+*.log
+.DS_Store
+.env
+.env.local
+public/audio/generated/
+public/recordings/raw/
+*.tsbuildinfo

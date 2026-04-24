@@ -1,0 +1,43 @@
+{
+  "name": "claude-code-setup-reel",
+  "version": "1.0.0",
+  "description": "Automated vertical reel generator for Setup Claude Code in 30 Seconds",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "build": "remotion render src/index.ts ClaudeCodeSetup out/video.mp4 --concurrency=4",
+    "build:hq": "remotion render src/index.ts ClaudeCodeSetup out/video.mp4 --concurrency=4 --crf=15 --pixel-format=yuv420p",
+    "still": "remotion still src/index.ts ClaudeCodeSetup out/preview.png",
+    "lint": "tsc --noEmit",
+    "record:browser": "tsx src/automation/playwright/record.ts",
+    "tts": "tsx src/audio/generate-tts.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.380",
+    "@remotion/cli": "^4.0.380",
+    "@remotion/captions": "^4.0.380",
+    "@remotion/google-fonts": "^4.0.380",
+    "@remotion/install-whisper-cpp": "^4.0.380",
+    "@remotion/media-utils": "^4.0.380",
+    "@remotion/noise": "^4.0.380",
+    "@remotion/preload": "^4.0.380",
+    "@remotion/renderer": "^4.0.380",
+    "@remotion/shapes": "^4.0.380",
+    "@remotion/transitions": "^4.0.380",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.380",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "playwright": "^1.47.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
