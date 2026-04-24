@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "id": "setup-claude-code",
+    "title": "Setup Claude Code",
+    "subtitle": "in 30 seconds",
+    "language": "en",
+    "voiceId": "pNInz6obpgDQGcFmaJgB",
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "type": "title",
+      "id": "intro",
+      "durationSeconds": 5,
+      "narration": "Wanna setup Claude Code on any Mac in just thirty seconds?",
+      "title": "in 30 seconds",
+      "subtitle": "Setup Claude Code",
+      "illustration": "desktop",
+      "showRings": true
+    },
+    {
+      "type": "browser",
+      "id": "google",
+      "durationSeconds": 6,
+      "narration": "Open Google, search vs code, and open the first result.",
+      "url": "google.com/search?q=vs+code",
+      "content": { "kind": "google", "query": "vs code" },
+      "scroll": [
+        { "at": 0, "y": 0 },
+        { "at": 4, "y": 80 }
+      ],
+      "cursorPath": [
+        { "at": 0.2, "x": 880, "y": 220 },
+        { "at": 1.2, "x": 540, "y": 690, "control": { "x": 700, "y": 360 } },
+        { "at": 2.4, "x": 460, "y": 760, "click": true }
+      ]
+    },
+    {
+      "type": "browser",
+      "id": "vscode-site",
+      "durationSeconds": 7,
+      "narration": "Click Download for macOS, install the editor.",
+      "url": "code.visualstudio.com",
+      "content": { "kind": "vscode" },
+      "scroll": [
+        { "at": 0, "y": 0 },
+        { "at": 5, "y": 380 }
+      ],
+      "cursorPath": [
+        { "at": 0.3, "x": 880, "y": 200 },
+        { "at": 1.7, "x": 540, "y": 980, "control": { "x": 720, "y": 480 } },
+        { "at": 3.3, "x": 540, "y": 1180, "click": true }
+      ]
+    },
+    {
+      "type": "desktop",
+      "id": "right-click",
+      "durationSeconds": 7,
+      "narration": "Now right click on the desktop and choose New Folder.",
+      "contextMenu": {
+        "at": { "x": 510, "y": 1210 },
+        "openAt": 0.9,
+        "highlightIndex": 0,
+        "highlightAt": 2.5
+      },
+      "cursorPath": [
+        { "at": 0.1, "x": 720, "y": 1100 },
+        { "at": 0.85, "x": 510, "y": 1210, "control": { "x": 600, "y": 1180 }, "click": true },
+        { "at": 2.0, "x": 540, "y": 1230 },
+        { "at": 2.8, "x": 590, "y": 1280, "click": true }
+      ]
+    },
+    {
+      "type": "terminal",
+      "id": "install",
+      "durationSeconds": 5,
+      "narration": "Open it in VS Code, hit terminal, and run claude code.",
+      "user": "alex",
+      "host": "Mac",
+      "lines": [
+        { "at": 0.2, "typeFor": 0.7, "text": "npm install -g @anthropic-ai/claude-code", "prompt": true },
+        { "at": 1.2, "typeFor": 0.4, "text": "added 1 package in 3s", "color": "#9DA5B0" },
+        { "at": 1.9, "typeFor": 0.5, "text": "claude", "prompt": true },
+        { "at": 2.6, "typeFor": 0.4, "text": "✓ Authenticated", "color": "#7EE787" },
+        { "at": 3.1, "typeFor": 0.6, "text": "Welcome to Claude Code — start coding!", "color": "#E6E6E6" }
+      ]
+    },
+    {
+      "type": "outro",
+      "id": "outro",
+      "durationSeconds": 2,
+      "narration": "Done.",
+      "bigText": "Done.",
+      "smallText": "Follow for more"
+    }
+  ],
+  "captions": [
+    { "text": "on", "at": 2.0, "hold": 0.7, "x": 540, "y": 1280, "rotation": -3, "variant": "primary" },
+    { "text": "any Mac", "at": 3.0, "hold": 0.85, "x": 540, "y": 1300, "rotation": 2, "variant": "primary" },
+    { "text": "30 seconds", "at": 4.0, "hold": 0.9, "x": 540, "y": 960, "rotation": 0, "variant": "primary" },
+    { "text": "search", "at": 5.5, "hold": 0.7, "x": 360, "y": 720, "rotation": -4, "variant": "primary" },
+    { "text": "vs code", "at": 6.6, "hold": 0.75, "x": 540, "y": 920, "rotation": 3, "variant": "primary" },
+    { "text": "and", "at": 8.8, "hold": 0.6, "x": 540, "y": 1300, "rotation": -2, "variant": "primary" },
+    { "text": "download", "at": 11.5, "hold": 0.85, "x": 540, "y": 1080, "rotation": 4, "variant": "primary" },
+    { "text": "for macOS", "at": 12.8, "hold": 0.85, "x": 540, "y": 1280, "rotation": -3, "variant": "primary" },
+    { "text": "right click", "at": 18.2, "hold": 0.85, "x": 540, "y": 1100, "rotation": -2, "variant": "primary" },
+    { "text": "new", "at": 20.0, "hold": 0.8, "x": 540, "y": 1300, "rotation": 4, "variant": "primary" },
+    { "text": "open terminal", "at": 25.0, "hold": 0.85, "x": 540, "y": 1100, "rotation": -2, "variant": "primary" },
+    { "text": "claude code", "at": 26.5, "hold": 0.95, "x": 540, "y": 1300, "rotation": 2, "variant": "primary" },
+    { "text": "done!", "at": 30.0, "hold": 1.5, "x": 540, "y": 960, "rotation": -3, "variant": "primary" }
+  ]
+}

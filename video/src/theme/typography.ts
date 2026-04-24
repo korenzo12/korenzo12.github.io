@@ -1,12 +1,24 @@
 import { loadFont as loadInter } from "@remotion/google-fonts/Inter";
 import { loadFont as loadDmSerif } from "@remotion/google-fonts/DMSerifDisplay";
 import { loadFont as loadJetBrains } from "@remotion/google-fonts/JetBrainsMono";
+import { loadFont as loadHeebo } from "@remotion/google-fonts/Heebo";
+import { loadFont as loadFrankRuhl } from "@remotion/google-fonts/FrankRuhlLibre";
 
 export const fonts = {
   display: loadDmSerif().fontFamily,
   ui: loadInter().fontFamily,
   mono: loadJetBrains().fontFamily,
+  // Hebrew counterparts - sans-serif and serif-display
+  uiHe: loadHeebo().fontFamily,
+  displayHe: loadFrankRuhl().fontFamily,
 } as const;
+
+/** Pick the right font family pair for a given language. */
+export const fontsFor = (lang: "en" | "he") => ({
+  display: lang === "he" ? fonts.displayHe : fonts.display,
+  ui: lang === "he" ? fonts.uiHe : fonts.ui,
+  mono: fonts.mono,
+});
 
 export const typography = {
   hero: {

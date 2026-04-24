@@ -1,13 +1,11 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { MockTerminal } from "@/components/MockTerminal";
 import { lerp, popSpring } from "@/utils/animation";
-import { typography, colors } from "@/theme";
+import type { TerminalScene as TerminalSceneProps } from "@/types/plan";
 
-/**
- * Scene 5: Terminal opens, runs `npm install -g @anthropic-ai/claude-code`,
- * then `claude` authenticates and shows ready prompt.
- */
-export const TerminalScene: React.FC = () => {
+export const TerminalSceneRenderer: React.FC<{ scene: TerminalSceneProps }> = ({
+  scene,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -15,12 +13,20 @@ export const TerminalScene: React.FC = () => {
   const slideY = lerp(frame, [0, 22], [120, 0]);
   const opacity = lerp(frame, [0, 14], [0, 1]);
 
+  const lines = scene.lines.map((line) => ({
+    at: Math.round(line.at * fps),
+    duration: Math.round(line.typeFor * fps),
+    text: line.text,
+    prompt: line.prompt,
+    color: line.color,
+  }));
+
   return (
     <AbsoluteFill>
       <div
         style={{
           position: "absolute",
-          top: 220,
+          top: 240,
           left: "50%",
           transform: `translate(-50%, ${slideY}px) scale(${enter})`,
           opacity,
@@ -30,29 +36,10 @@ export const TerminalScene: React.FC = () => {
         <MockTerminal
           width={980}
           height={900}
-          lines={[
-            { at: 6, duration: 22, text: "npm install -g @anthropic-ai/claude-code", prompt: true },
-            { at: 36, duration: 12, text: "added 1 package in 3s", color: "#9DA5B0" },
-            { at: 56, duration: 14, text: "claude", prompt: true },
-            { at: 78, duration: 10, text: "✓ Authenticated", color: "#7EE787" },
-            { at: 92, duration: 18, text: "Welcome to Claude Code — start coding!", color: "#E6E6E6" },
-          ]}
+          user={scene.user}
+          host={scene.host}
+          lines={lines}
         />
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          top: 1180,
-          left: 0,
-          right: 0,
-          textAlign: "center",
-          opacity: lerp(frame, [70, 95], [0, 1]),
-        }}
-      >
-        <div style={{ ...typography.subtitle, color: colors.text.primary, fontWeight: 700 }}>
-          That's it. ⚡
-        </div>
       </div>
     </AbsoluteFill>
   );

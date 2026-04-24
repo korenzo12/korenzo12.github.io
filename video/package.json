@@ -1,18 +1,19 @@
 {
-  "name": "claude-code-setup-reel",
+  "name": "claude-reel-studio",
   "version": "1.0.0",
-  "description": "Automated vertical reel generator for Setup Claude Code in 30 Seconds",
+  "description": "Plan-driven vertical reel generator. Author plans by hand or have Claude write them, then render to MP4.",
   "private": true,
   "scripts": {
     "dev": "remotion studio src/index.ts",
-    "build": "remotion render src/index.ts ClaudeCodeSetup out/video.mp4 --concurrency=4",
-    "build:hq": "remotion render src/index.ts ClaudeCodeSetup out/video.mp4 --concurrency=4 --crf=15 --pixel-format=yuv420p",
-    "still": "remotion still src/index.ts ClaudeCodeSetup out/preview.png",
-    "lint": "tsc --noEmit",
+    "render": "remotion render src/index.ts",
+    "create": "tsx bin/create.ts",
+    "plan": "tsx bin/create.ts --no-tts --no-render",
+    "tts": "tsx src/audio/generate-tts.ts",
     "record:browser": "tsx src/automation/playwright/record.ts",
-    "tts": "tsx src/audio/generate-tts.ts"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.1",
     "@remotion/bundler": "^4.0.380",
     "@remotion/cli": "^4.0.380",
     "@remotion/captions": "^4.0.380",

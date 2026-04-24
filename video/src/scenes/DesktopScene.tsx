@@ -1,28 +1,34 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { MockMacOS } from "@/components/MockMacOS";
-import { AnimatedCursor, CursorWaypoint } from "@/components/AnimatedCursor";
+import { AnimatedCursor, CursorWaypoint as CursorWaypointPx } from "@/components/AnimatedCursor";
 import { lerp } from "@/utils/animation";
+import type { DesktopScene as DesktopSceneProps } from "@/types/plan";
 
-/**
- * Scene 4: macOS desktop. Cursor right-clicks, context menu appears,
- * cursor highlights "New Folder".
- */
-export const DesktopScene: React.FC = () => {
+export const DesktopSceneRenderer: React.FC<{ scene: DesktopSceneProps }> = ({
+  scene,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
   const slideIn = lerp(frame, [0, 18], [180, 0]);
   const opacity = lerp(frame, [0, 14], [0, 1]);
 
-  const menuStartFrame = 30;
-  const showMenu = frame >= menuStartFrame - 2;
+  const menuStartFrame = scene.contextMenu
+    ? Math.round(scene.contextMenu.openAt * fps)
+    : 0;
+  const showMenu = !!scene.contextMenu && frame >= menuStartFrame - 2;
+  const highlightFrame =
+    scene.contextMenu?.highlightAt !== undefined
+      ? Math.round(scene.contextMenu.highlightAt * fps)
+      : null;
 
-  const cursorPath: CursorWaypoint[] = [
-    { at: 4, x: 720, y: 1100 },
-    { at: 26, x: 510, y: 1210, control: { x: 600, y: 1180 }, click: true },
-    { at: 60, x: 540, y: 1230 },
-    { at: 84, x: 590, y: 1280, click: true },
-  ];
+  const cursorPath: CursorWaypointPx[] = scene.cursorPath.map((w) => ({
+    at: Math.round(w.at * fps),
+    x: w.x,
+    y: w.y,
+    control: w.control,
+    click: w.click,
+  }));
 
   return (
     <AbsoluteFill>
@@ -36,13 +42,16 @@ export const DesktopScene: React.FC = () => {
       >
         <MockMacOS
           showContextMenu={showMenu}
-          contextMenuAt={{ x: 510, y: 1210 }}
+          contextMenuAt={scene.contextMenu?.at}
           contextMenuStartFrame={menuStartFrame}
-          highlightedItemIndex={frame >= 76 ? 0 : null}
+          highlightedItemIndex={
+            highlightFrame !== null && frame >= highlightFrame
+              ? scene.contextMenu?.highlightIndex ?? null
+              : null
+          }
         />
       </div>
-
-      <AnimatedCursor path={cursorPath} showFrom={2} />
+      {cursorPath.length > 0 && <AnimatedCursor path={cursorPath} showFrom={2} />}
     </AbsoluteFill>
   );
 };

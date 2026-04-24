@@ -1,8 +1,11 @@
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import { typography, colors } from "@/theme";
 import { popSpring, lerp } from "@/utils/animation";
+import type { OutroScene as OutroSceneProps } from "@/types/plan";
 
-export const OutroScene: React.FC = () => {
+export const OutroSceneRenderer: React.FC<{ scene: OutroSceneProps }> = ({
+  scene,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -10,16 +13,25 @@ export const OutroScene: React.FC = () => {
   const followScale = popSpring(frame, fps, 16);
 
   return (
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 60 }}>
+    <AbsoluteFill
+      style={{
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: 60,
+      }}
+    >
       <div
         style={{
           ...typography.hero,
           color: colors.text.primary,
           transform: `scale(${titleScale})`,
           fontStyle: "italic",
+          textAlign: "center",
+          padding: "0 40px",
         }}
       >
-        Done.
+        {scene.bigText}
       </div>
       <div
         style={{
@@ -28,9 +40,11 @@ export const OutroScene: React.FC = () => {
           fontWeight: 700,
           transform: `scale(${followScale})`,
           opacity: lerp(frame, [16, 24], [0, 1]),
+          textAlign: "center",
+          padding: "0 40px",
         }}
       >
-        Follow for more ⚡
+        {scene.smallText}
       </div>
     </AbsoluteFill>
   );
